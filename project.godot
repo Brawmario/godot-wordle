@@ -14,6 +14,10 @@ config/name="Godot Wordle"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+WordList="*res://WordList.gd"
+
 [display]
 
 window/size/width=480

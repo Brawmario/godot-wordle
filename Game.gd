@@ -1,11 +1,6 @@
 extends Node
 
 
-enum CheckWordResult {
-	CORRECT,
-	VALID,
-}
-
 enum CheckLetter {
 	NOT_IN_WORD,
 	WRONG_PLACE,
@@ -29,14 +24,8 @@ onready var word_rows := [
 ]
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	word_to_guess = WordList.get_todays_word()
 
 
 func _input(event):
@@ -61,6 +50,9 @@ func _input(event):
 				return
 			for i in range(5):
 				update_color_panel(attempt_result[i], current_attempt, i + 1)
+			if word_attempt == word_to_guess:
+				$Words/Message.text = "You Win!"
+				set_process_input(false)
 			current_attempt += 1
 			current_letter = 1
 			word_attempt = ""
@@ -69,7 +61,7 @@ func _input(event):
 func check_word(word: String, correct_word: String) -> Array:
 	var result = []
 
-	if not (word in WordList.words):
+	if not (word in WordList.WORDS):
 		return result
 
 	for i in range(5):

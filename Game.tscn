@@ -623,3 +623,19 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Message" type="Label" parent="Words"]
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+margin_left = -140.0
+margin_top = -25.0
+margin_right = 140.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 1 )
+text = "Godot Wordle"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

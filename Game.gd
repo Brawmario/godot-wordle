@@ -43,25 +43,33 @@ func _input(event):
 			update_letter_panel("", current_attempt, current_letter)
 		elif event.scancode == KEY_ENTER:
 			if word_attempt.length() < 5:
+				$Words/Message.text = "Type 5 letters"
 				return
 			word_attempt = word_attempt.to_lower()
 			var attempt_result := check_word(word_attempt, word_to_guess)
 			if attempt_result.empty():
+				$Words/Message.text = "Not in dictionary"
 				return
 			for i in range(5):
 				update_color_panel(attempt_result[i], current_attempt, i + 1)
 			if word_attempt == word_to_guess:
 				$Words/Message.text = "You Win!"
 				set_process_input(false)
+				return
 			current_attempt += 1
+			if current_attempt > 6:
+				$Words/Message.text = "You Lose!\n The word was:\n " + word_to_guess
+				set_process_input(false)
+				return
 			current_letter = 1
 			word_attempt = ""
+			$Words/Message.text = "Godot Wordle"
 
 
 func check_word(word: String, correct_word: String) -> Array:
 	var result = []
 
-	if not (word in WordList.WORDS):
+	if not (word in WordList.DICTIONARY):
 		return result
 
 	for i in range(5):
@@ -80,10 +88,11 @@ func update_letter_panel(letter: String, attempt_number: int, letter_number: int
 
 
 func update_color_panel(check_letter: int, attempt_number: int, letter_number: int) -> void:
+	var panel: ColorRect = word_rows[attempt_number - 1].get_node("Letter" + str(letter_number))
 	match check_letter:
 		CheckLetter.NOT_IN_WORD:
-			word_rows[attempt_number - 1].get_node("Letter" + str(letter_number)).color = Color.black
+			panel.color = Color.black
 		CheckLetter.WRONG_PLACE:
-			word_rows[attempt_number - 1].get_node("Letter" + str(letter_number)).color = Color.yellow
+			panel.color = Color.yellow
 		CheckLetter.CORRECT:
-			word_rows[attempt_number - 1].get_node("Letter" + str(letter_number)).color = Color.yellowgreen
+			panel.color = Color.yellowgreen

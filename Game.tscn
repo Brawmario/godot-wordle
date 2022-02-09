@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Fonts/STL.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
+[ext_resource path="res://Keyboard.gd" type="Script" id=3]
 
 [node name="Game" type="Node"]
 script = ExtResource( 2 )
@@ -639,3 +640,231 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Keyboard" type="VBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -241.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyRow1" type="HBoxContainer" parent="Keyboard"]
+margin_right = 480.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Q" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_right = 38.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "Q"
+
+[node name="W" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 42.0
+margin_right = 88.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "W"
+
+[node name="E" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 92.0
+margin_right = 125.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "E"
+
+[node name="R" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 129.0
+margin_right = 165.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "R"
+
+[node name="T" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 169.0
+margin_right = 206.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "T"
+
+[node name="Y" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 210.0
+margin_right = 247.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "Y"
+
+[node name="U" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 251.0
+margin_right = 289.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "U"
+
+[node name="I" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 293.0
+margin_right = 317.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "I"
+
+[node name="O" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 321.0
+margin_right = 359.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "O"
+
+[node name="P" type="Button" parent="Keyboard/KeyRow1" groups=["LetterKeys"]]
+margin_left = 363.0
+margin_right = 399.0
+margin_bottom = 77.0
+custom_fonts/font = ExtResource( 1 )
+text = "P"
+
+[node name="KeyRow2" type="HBoxContainer" parent="Keyboard"]
+margin_top = 81.0
+margin_right = 480.0
+margin_bottom = 159.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="A" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_right = 40.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "A"
+
+[node name="S" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_left = 44.0
+margin_right = 81.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "S"
+
+[node name="D" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_left = 85.0
+margin_right = 120.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "D"
+
+[node name="F" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_left = 124.0
+margin_right = 158.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "F"
+
+[node name="G" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_left = 162.0
+margin_right = 200.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "G"
+
+[node name="H" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_left = 204.0
+margin_right = 240.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "H"
+
+[node name="J" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_left = 244.0
+margin_right = 280.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "J"
+
+[node name="K" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_left = 284.0
+margin_right = 324.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "K"
+
+[node name="L" type="Button" parent="Keyboard/KeyRow2" groups=["LetterKeys"]]
+margin_left = 328.0
+margin_right = 360.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "L"
+
+[node name="BackSpace" type="Button" parent="Keyboard/KeyRow2"]
+margin_left = 364.0
+margin_right = 480.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Del"
+
+[node name="KeyRow3" type="HBoxContainer" parent="Keyboard"]
+margin_top = 163.0
+margin_right = 480.0
+margin_bottom = 241.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Z" type="Button" parent="Keyboard/KeyRow3" groups=["LetterKeys"]]
+margin_right = 39.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "Z"
+
+[node name="X" type="Button" parent="Keyboard/KeyRow3" groups=["LetterKeys"]]
+margin_left = 43.0
+margin_right = 84.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "X"
+
+[node name="C" type="Button" parent="Keyboard/KeyRow3" groups=["LetterKeys"]]
+margin_left = 88.0
+margin_right = 125.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "C"
+
+[node name="V" type="Button" parent="Keyboard/KeyRow3" groups=["LetterKeys"]]
+margin_left = 129.0
+margin_right = 168.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "V"
+
+[node name="B" type="Button" parent="Keyboard/KeyRow3" groups=["LetterKeys"]]
+margin_left = 172.0
+margin_right = 208.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "B"
+
+[node name="N" type="Button" parent="Keyboard/KeyRow3" groups=["LetterKeys"]]
+margin_left = 212.0
+margin_right = 252.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "N"
+
+[node name="M" type="Button" parent="Keyboard/KeyRow3" groups=["LetterKeys"]]
+margin_left = 256.0
+margin_right = 297.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 1 )
+text = "M"
+
+[node name="Enter" type="Button" parent="Keyboard/KeyRow3"]
+margin_left = 301.0
+margin_right = 480.0
+margin_bottom = 78.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Enter"
+
+[connection signal="pressed" from="Keyboard/KeyRow2/BackSpace" to="Keyboard" method="_on_BackSpace_pressed"]
+[connection signal="pressed" from="Keyboard/KeyRow3/Enter" to="Keyboard" method="_on_Enter_pressed"]

@@ -1,13 +1,6 @@
 extends Node
 
 
-enum CheckLetter {
-	NOT_IN_WORD,
-	WRONG_PLACE,
-	CORRECT,
-}
-
-
 var word_to_guess := ""
 var word_attempt := ""
 
@@ -52,13 +45,14 @@ func _input(event):
 				return
 			for i in range(5):
 				update_color_panel(attempt_result[i], current_attempt, i + 1)
+				$Keyboard.change_letter_key_color(word_attempt[i], attempt_result[i])
 			if word_attempt == word_to_guess:
 				$Words/Message.text = "You Win!"
 				set_process_input(false)
 				return
 			current_attempt += 1
 			if current_attempt > 6:
-				$Words/Message.text = "You Lose!\n The word was:\n " + word_to_guess
+				$Words/Message.text = "The word was: " + word_to_guess
 				set_process_input(false)
 				return
 			current_letter = 1
@@ -74,11 +68,11 @@ func check_word(word: String, correct_word: String) -> Array:
 
 	for i in range(5):
 		if not (word[i] in correct_word):
-			result.append(CheckLetter.NOT_IN_WORD)
+			result.append(Globals.CheckLetter.NOT_IN_WORD)
 		elif word[i] == correct_word[i]:
-			result.append(CheckLetter.CORRECT)
+			result.append(Globals.CheckLetter.CORRECT)
 		else:
-			result.append(CheckLetter.WRONG_PLACE)
+			result.append(Globals.CheckLetter.WRONG_PLACE)
 
 	return result
 
@@ -90,9 +84,9 @@ func update_letter_panel(letter: String, attempt_number: int, letter_number: int
 func update_color_panel(check_letter: int, attempt_number: int, letter_number: int) -> void:
 	var panel: ColorRect = word_rows[attempt_number - 1].get_node("Letter" + str(letter_number))
 	match check_letter:
-		CheckLetter.NOT_IN_WORD:
+		Globals.CheckLetter.NOT_IN_WORD:
 			panel.color = Color.black
-		CheckLetter.WRONG_PLACE:
+		Globals.CheckLetter.WRONG_PLACE:
 			panel.color = Color.yellow
-		CheckLetter.CORRECT:
+		Globals.CheckLetter.CORRECT:
 			panel.color = Color.yellowgreen

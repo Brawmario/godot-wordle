@@ -1,6 +1,6 @@
 # Godot Wordle
 
-![Godot Wordle cover](https://i.imgur.com/WSatNIm.png)
+![Godot Wordle cover](https://i.imgur.com/B96I2nq.png)
 
 Simple wordle clone made in Godot
 

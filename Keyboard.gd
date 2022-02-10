@@ -7,6 +7,18 @@ func _ready() -> void:
 		key.connect("pressed", self, "_send_letter_key_input_event", [_char_to_ascii_int(key.text.to_lower())])
 
 
+func change_letter_key_color(letter: String, check_letter: int) -> void:
+	for key in get_tree().get_nodes_in_group("LetterKeys"):
+		if letter == key.text.to_lower():
+			match check_letter:
+				Globals.CheckLetter.NOT_IN_WORD:
+					key.self_modulate = Color.red
+				Globals.CheckLetter.WRONG_PLACE:
+					key.self_modulate = Color.yellow
+				Globals.CheckLetter.CORRECT:
+					key.self_modulate = Color.yellowgreen
+
+
 func _char_to_ascii_int(key: String) -> int:
 	var spb := StreamPeerBuffer.new()
 	spb.data_array = key.to_ascii()

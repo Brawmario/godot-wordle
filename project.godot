@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Globals="*res://Globals.gd"
 WordList="*res://WordList.gd"
 
 [display]

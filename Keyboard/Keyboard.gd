@@ -19,10 +19,10 @@ func change_letter_key_color(letter: String, check_letter: int) -> void:
 					key.self_modulate = Color.yellowgreen
 
 
-func _char_to_ascii_int(key: String) -> int:
-	var spb := StreamPeerBuffer.new()
-	spb.data_array = key.to_ascii()
-	return spb.get_8()
+func _char_to_ascii_int(letter: String) -> int:
+	var buffer := StreamPeerBuffer.new()
+	buffer.data_array = letter.to_ascii()
+	return buffer.get_8()
 
 
 func _send_letter_key_input_event(unicode: int) -> void:

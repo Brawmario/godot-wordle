@@ -16,8 +16,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Globals="*res://Globals.gd"
-WordList="*res://WordList.gd"
+Globals="*res://AutoLoad/Globals.gd"
+WordList="*res://AutoLoad/WordList.gd"
 
 [display]
 

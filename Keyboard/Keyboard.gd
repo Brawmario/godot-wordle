@@ -12,9 +12,11 @@ func change_letter_key_color(letter: String, check_letter: int) -> void:
 		if letter == key.text.to_lower():
 			match check_letter:
 				Globals.CheckLetter.NOT_IN_WORD:
-					key.self_modulate = Color.red
+					if key.self_modulate != Color.yellow and key.self_modulate != Color.yellowgreen:
+						key.self_modulate = Color.red
 				Globals.CheckLetter.WRONG_PLACE:
-					key.self_modulate = Color.yellow
+					if key.self_modulate != Color.yellowgreen:
+						key.self_modulate = Color.yellow
 				Globals.CheckLetter.CORRECT:
 					key.self_modulate = Color.yellowgreen
 

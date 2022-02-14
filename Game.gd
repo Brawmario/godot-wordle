@@ -40,7 +40,7 @@ func _input(event):
 				return
 			word_attempt = word_attempt.to_lower()
 			var attempt_result := check_word(word_attempt, word_to_guess)
-			if attempt_result.empty():
+			if attempt_result[0] == Globals.CheckLetter.NOT_CHECKED:
 				$Words/Message.text = "Not in dictionary"
 				return
 			for i in range(5):
@@ -61,18 +61,34 @@ func _input(event):
 
 
 func check_word(word: String, correct_word: String) -> Array:
-	var result = []
+	var result := [
+		Globals.CheckLetter.NOT_CHECKED,
+		Globals.CheckLetter.NOT_CHECKED,
+		Globals.CheckLetter.NOT_CHECKED,
+		Globals.CheckLetter.NOT_CHECKED,
+		Globals.CheckLetter.NOT_CHECKED,
+	]
+	var correct_letter_count := {}
 
-	if not (word in WordList.DICTIONARY):
+	if not (word in WordList.DICTIONARY) and not (word in WordList.WORDS):
 		return result
 
+	for letter in correct_word:
+		correct_letter_count[letter] = correct_letter_count.get(letter, 0) + 1
+
 	for i in range(5):
-		if not (word[i] in correct_word):
-			result.append(Globals.CheckLetter.NOT_IN_WORD)
-		elif word[i] == correct_word[i]:
-			result.append(Globals.CheckLetter.CORRECT)
+		if word[i] == correct_word[i]:
+			result[i] = Globals.CheckLetter.CORRECT
+			correct_letter_count[word[i]] -= 1
+
+	for i in range(5):
+		if result[i] == Globals.CheckLetter.CORRECT:
+			continue
+		elif word[i] in correct_word and correct_letter_count.get(word[i], 0) > 0:
+			result[i] = Globals.CheckLetter.WRONG_PLACE
+			correct_letter_count[word[i]] -= 1
 		else:
-			result.append(Globals.CheckLetter.WRONG_PLACE)
+			result[i] = Globals.CheckLetter.NOT_IN_WORD
 
 	return result
 

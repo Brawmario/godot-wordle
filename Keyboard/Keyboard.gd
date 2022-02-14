@@ -11,6 +11,8 @@ func change_letter_key_color(letter: String, check_letter: int) -> void:
 	for key in get_tree().get_nodes_in_group("LetterKeys"):
 		if letter == key.text.to_lower():
 			match check_letter:
+				Globals.CheckLetter.NOT_CHECKED:
+					key.self_modulate = Color.white
 				Globals.CheckLetter.NOT_IN_WORD:
 					if key.self_modulate != Color.yellow and key.self_modulate != Color.yellowgreen:
 						key.self_modulate = Color.red

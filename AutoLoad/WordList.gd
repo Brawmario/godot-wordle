@@ -35,12 +35,12 @@ func _days_between_dates(lhs: Dictionary, rhs: Dictionary) -> int:
 	var _month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 	var days1 = lhs.year * 365 + lhs.day
-	for i in range(0, lhs.month - 1):
+	for i in range(lhs.month - 1):
 		days1 += _month_days[i]
 	days1 += _count_leap_years(lhs)
 
 	var days2 = rhs.year * 365 + rhs.day
-	for i in range(0, rhs.month - 1):
+	for i in range(rhs.month - 1):
 		days2 += _month_days[i]
 	days2 += _count_leap_years(rhs)
 

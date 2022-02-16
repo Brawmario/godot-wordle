@@ -1,9 +1,13 @@
-name: "godot-ci export"
-on: push
+name: godot-ci export
+on:
+  push:
+    tags:
+      - 'v*.*.*'
 
 env:
   GODOT_VERSION: 3.4.2
   EXPORT_NAME: godot-wordle
+
 jobs:
   export-windows:
     name: Windows Export
@@ -24,15 +28,15 @@ jobs:
           apt-get update && apt-get install -y rsync
       - name: Windows Build
         run: |
-          mkdir ./$EXPORT_NAME
-          rsync -Rr . ./$EXPORT_NAME
+          mkdir ./${EXPORT_NAME}
+          rsync -Rr . ./${EXPORT_NAME}
           mkdir -v -p build/windows
-          cd $EXPORT_NAME
-          godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
+          cd ${EXPORT_NAME}
+          godot -v --export "Windows Desktop" ../build/windows/${EXPORT_NAME}.exe
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: windows
+          name: windows.${{ github.ref_name }}
           path: build/windows
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
@@ -42,6 +46,7 @@ jobs:
           ITCH_GAME: godot-wordle
           ITCH_USER: brawmario
           PACKAGE: build/windows
+          VERSION: ${{ github.ref_name }}
 
   export-linux:
     name: Linux Export
@@ -62,15 +67,15 @@ jobs:
           apt-get update && apt-get install -y rsync
       - name: Linux Build
         run: |
-          mkdir ./$EXPORT_NAME
-          rsync -Rr . ./$EXPORT_NAME
+          mkdir ./${EXPORT_NAME}
+          rsync -Rr . ./${EXPORT_NAME}
           mkdir -v -p build/linux
-          cd $EXPORT_NAME
-          godot -v --export "Linux/X11" ../build/linux/$EXPORT_NAME.x86_64
+          cd ${EXPORT_NAME}
+          godot -v --export "Linux/X11" ../build/linux/${EXPORT_NAME}.x86_64
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: linux
+          name: linux.${{ github.ref_name }}
           path: build/linux
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
@@ -80,6 +85,7 @@ jobs:
           ITCH_GAME: godot-wordle
           ITCH_USER: brawmario
           PACKAGE: build/linux
+          VERSION: ${{ github.ref_name }}
 
   export-web:
     name: Web Export
@@ -100,15 +106,15 @@ jobs:
           apt-get update && apt-get install -y rsync
       - name: Web Build
         run: |
-          mkdir ./$EXPORT_NAME
-          rsync -Rr . ./$EXPORT_NAME
+          mkdir ./${EXPORT_NAME}
+          rsync -Rr . ./${EXPORT_NAME}
           mkdir -v -p build/web
-          cd $EXPORT_NAME
+          cd ${EXPORT_NAME}
           godot -v --export "HTML5" ../build/web/index.html
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: web
+          name: web.${{ github.ref_name }}
           path: build/web
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
@@ -118,11 +124,12 @@ jobs:
           ITCH_GAME: godot-wordle
           ITCH_USER: brawmario
           PACKAGE: build/web
+          VERSION: ${{ github.ref_name }}
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build/web # The folder the action should deploy.
+          branch: gh-pages
+          folder: build/web
 
   export-mac:
     name: Mac Export
@@ -143,15 +150,15 @@ jobs:
           apt-get update && apt-get install -y rsync
       - name: Mac Build
         run: |
-          mkdir ./$EXPORT_NAME
-          rsync -Rr . ./$EXPORT_NAME
+          mkdir ./${EXPORT_NAME}
+          rsync -Rr . ./${EXPORT_NAME}
           mkdir -v -p build/mac
-          cd $EXPORT_NAME
-          godot -v --export "Mac OSX" ../build/mac/$EXPORT_NAME.zip
+          cd ${EXPORT_NAME}
+          godot -v --export "Mac OSX" ../build/mac/${EXPORT_NAME}.zip
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: mac
+          name: mac.${{ github.ref_name }}
           path: build/mac
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
@@ -161,3 +168,4 @@ jobs:
           ITCH_GAME: godot-wordle
           ITCH_USER: brawmario
           PACKAGE: build/mac
+          VERSION: ${{ github.ref_name }}

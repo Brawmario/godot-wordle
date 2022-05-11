@@ -5,15 +5,31 @@ on:
       - 'v*.*.*'
 
 env:
-  GODOT_VERSION: 3.4.2
+  GODOT_VERSION: 3.4.4
   EXPORT_NAME: godot-wordle
 
 jobs:
-  export-windows:
-    name: Windows Export
+  export-game:
+    name: Export game
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.4.2
+      image: barichello/godot-ci:3.4.4
+    strategy:
+      matrix:
+        include:
+          - PLATFORM: windows
+            EXPORT_PRESET: 'Windows Desktop'
+            EXPORT_FILENAME: godot-wordle.exe
+          - PLATFORM: linux
+            EXPORT_PRESET: 'Linux/X11'
+            EXPORT_FILENAME: godot-wordle.x86_64
+          - PLATFORM: mac
+            EXPORT_PRESET: 'Mac OSX'
+            EXPORT_FILENAME: godot-wordle.zip
+          - PLATFORM: web
+            EXPORT_PRESET: 'HTML5'
+            EXPORT_FILENAME: index.html
+      fail-fast: true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -23,149 +39,27 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Install rsync 📚
+      - name: Install rsync
         run: |
           apt-get update && apt-get install -y rsync
-      - name: Windows Build
+      - name: Build
         run: |
           mkdir ./${EXPORT_NAME}
           rsync -Rr . ./${EXPORT_NAME}
-          mkdir -v -p build/windows
+          mkdir -v -p build/${{ matrix.PLATFORM }}
           cd ${EXPORT_NAME}
-          godot -v --export "Windows Desktop" ../build/windows/${EXPORT_NAME}.exe
+          godot -v --export "${{ matrix.EXPORT_PRESET }}" ../build/${{ matrix.PLATFORM }}/${{ matrix.EXPORT_FILENAME }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: windows.${{ github.ref_name }}
-          path: build/windows
+          name: ${{ matrix.PLATFORM }}.${{ github.ref_name }}
+          path: build/${{ matrix.PLATFORM }}
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: windows
+          CHANNEL: ${{ matrix.PLATFORM }}
           ITCH_GAME: godot-wordle
           ITCH_USER: brawmario
-          PACKAGE: build/windows
-          VERSION: ${{ github.ref_name }}
-
-  export-linux:
-    name: Linux Export
-    runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:3.4.2
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Install rsync 📚
-        run: |
-          apt-get update && apt-get install -y rsync
-      - name: Linux Build
-        run: |
-          mkdir ./${EXPORT_NAME}
-          rsync -Rr . ./${EXPORT_NAME}
-          mkdir -v -p build/linux
-          cd ${EXPORT_NAME}
-          godot -v --export "Linux/X11" ../build/linux/${EXPORT_NAME}.x86_64
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: linux.${{ github.ref_name }}
-          path: build/linux
-      - name: Butler Upload
-        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
-        env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: linux
-          ITCH_GAME: godot-wordle
-          ITCH_USER: brawmario
-          PACKAGE: build/linux
-          VERSION: ${{ github.ref_name }}
-
-  export-web:
-    name: Web Export
-    runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:3.4.2
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Install rsync 📚
-        run: |
-          apt-get update && apt-get install -y rsync
-      - name: Web Build
-        run: |
-          mkdir ./${EXPORT_NAME}
-          rsync -Rr . ./${EXPORT_NAME}
-          mkdir -v -p build/web
-          cd ${EXPORT_NAME}
-          godot -v --export "HTML5" ../build/web/index.html
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: web.${{ github.ref_name }}
-          path: build/web
-      - name: Butler Upload
-        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
-        env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: web
-          ITCH_GAME: godot-wordle
-          ITCH_USER: brawmario
-          PACKAGE: build/web
-          VERSION: ${{ github.ref_name }}
-      - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.2.3
-        with:
-          branch: gh-pages
-          folder: build/web
-
-  export-mac:
-    name: Mac Export
-    runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:3.4.2
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Install rsync 📚
-        run: |
-          apt-get update && apt-get install -y rsync
-      - name: Mac Build
-        run: |
-          mkdir ./${EXPORT_NAME}
-          rsync -Rr . ./${EXPORT_NAME}
-          mkdir -v -p build/mac
-          cd ${EXPORT_NAME}
-          godot -v --export "Mac OSX" ../build/mac/${EXPORT_NAME}.zip
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: mac.${{ github.ref_name }}
-          path: build/mac
-      - name: Butler Upload
-        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
-        env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: mac
-          ITCH_GAME: godot-wordle
-          ITCH_USER: brawmario
-          PACKAGE: build/mac
+          PACKAGE: build/${{ matrix.PLATFORM }}
           VERSION: ${{ github.ref_name }}

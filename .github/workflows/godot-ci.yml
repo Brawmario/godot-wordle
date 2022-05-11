@@ -10,7 +10,7 @@ env:
 
 jobs:
   export-game:
-    name: Export game
+    name: Export game to ${{ matrix.PLATFORM }}
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:3.4.4
@@ -18,16 +18,16 @@ jobs:
       matrix:
         include:
           - PLATFORM: windows
-            EXPORT_PRESET: 'Windows Desktop'
+            EXPORT_PRESET: Windows Desktop
             EXPORT_FILENAME: godot-wordle.exe
           - PLATFORM: linux
-            EXPORT_PRESET: 'Linux/X11'
+            EXPORT_PRESET: Linux/X11
             EXPORT_FILENAME: godot-wordle.x86_64
           - PLATFORM: mac
-            EXPORT_PRESET: 'Mac OSX'
+            EXPORT_PRESET: Mac OSX
             EXPORT_FILENAME: godot-wordle.zip
           - PLATFORM: web
-            EXPORT_PRESET: 'HTML5'
+            EXPORT_PRESET: HTML5
             EXPORT_FILENAME: index.html
       fail-fast: true
     steps:
@@ -52,7 +52,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: ${{ matrix.PLATFORM }}.${{ github.ref_name }}
+          name: godot-wordle.${{ github.ref_name }}.${{ matrix.PLATFORM }}
           path: build/${{ matrix.PLATFORM }}
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3

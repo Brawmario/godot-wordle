@@ -6,7 +6,6 @@ on:
 
 env:
   GODOT_VERSION: 3.4.4
-  EXPORT_NAME: godot-wordle
 
 jobs:
   export-game:
@@ -39,11 +38,8 @@ jobs:
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Build
         run: |
-          ls -a
           mkdir -v -p build/${{ matrix.PLATFORM }}
-          echo ${{ github.workspace }}
-          cd ${{ github.workspace }}
-          godot -v --export "${{ matrix.EXPORT_PRESET }}" ../build/${{ matrix.PLATFORM }}/${{ matrix.EXPORT_FILENAME }}
+          godot -v --export "${{ matrix.EXPORT_PRESET }}" build/${{ matrix.PLATFORM }}/${{ matrix.EXPORT_FILENAME }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:

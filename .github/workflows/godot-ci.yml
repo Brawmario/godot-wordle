@@ -32,20 +32,13 @@ jobs:
       fail-fast: true
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          lfs: true
+        uses: actions/checkout@v3
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Install rsync
-        run: |
-          apt-get update && apt-get install -y rsync
       - name: Build
         run: |
-          mkdir ./${EXPORT_NAME}
-          rsync -Rr . ./${EXPORT_NAME}
           mkdir -v -p build/${{ matrix.PLATFORM }}
           cd ${EXPORT_NAME}
           godot -v --export "${{ matrix.EXPORT_PRESET }}" ../build/${{ matrix.PLATFORM }}/${{ matrix.EXPORT_FILENAME }}
@@ -63,3 +56,13 @@ jobs:
           ITCH_USER: brawmario
           PACKAGE: build/${{ matrix.PLATFORM }}
           VERSION: ${{ github.ref_name }}
+      - name: Install rsync
+        if: matrix.PLATFORM == 'web'
+        run: |
+          apt-get update && apt-get install -y rsync
+      - name: Deploy to GitHub Pages
+        if: matrix.PLATFORM == 'web'
+        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        with:
+          branch: gh-pages
+          folder: build/web

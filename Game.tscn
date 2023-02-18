@@ -1,644 +1,453 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://duniqv3b8fph5"]
 
-[ext_resource path="res://Assets/Fonts/STL.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Game.gd" type="Script" id=2]
-[ext_resource path="res://Keyboard/Keyboard.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://Game.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dmfq6ywgajjru" path="res://Keyboard/Keyboard.tscn" id="3"]
 
 [node name="Game" type="Node"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="Words" type="CanvasLayer" parent="."]
 
 [node name="WordRows" type="VBoxContainer" parent="Words"]
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -125.0
-margin_top = 20.024
-margin_right = 125.0
-margin_bottom = 370.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = -125.0
+offset_top = 20.024
+offset_right = 125.0
+offset_bottom = 370.0
 
 [node name="WordRow1" type="HBoxContainer" parent="Words/WordRows"]
-margin_right = 250.0
-margin_bottom = 54.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Letter1" type="ColorRect" parent="Words/WordRows/WordRow1"]
-margin_right = 46.0
-margin_bottom = 54.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter1"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow1"]
-margin_left = 50.0
-margin_right = 97.0
-margin_bottom = 54.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter2"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow1"]
-margin_left = 101.0
-margin_right = 148.0
-margin_bottom = 54.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter3"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow1"]
-margin_left = 152.0
-margin_right = 199.0
-margin_bottom = 54.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter4"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow1"]
-margin_left = 203.0
-margin_right = 250.0
-margin_bottom = 54.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter5"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="WordRow2" type="HBoxContainer" parent="Words/WordRows"]
-margin_top = 58.0
-margin_right = 250.0
-margin_bottom = 113.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Letter1" type="ColorRect" parent="Words/WordRows/WordRow2"]
-margin_right = 46.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter1"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow2"]
-margin_left = 50.0
-margin_right = 97.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter2"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow2"]
-margin_left = 101.0
-margin_right = 148.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter3"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow2"]
-margin_left = 152.0
-margin_right = 199.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter4"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow2"]
-margin_left = 203.0
-margin_right = 250.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter5"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="WordRow3" type="HBoxContainer" parent="Words/WordRows"]
-margin_top = 117.0
-margin_right = 250.0
-margin_bottom = 172.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Letter1" type="ColorRect" parent="Words/WordRows/WordRow3"]
-margin_right = 46.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter1"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow3"]
-margin_left = 50.0
-margin_right = 97.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter2"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow3"]
-margin_left = 101.0
-margin_right = 148.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter3"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow3"]
-margin_left = 152.0
-margin_right = 199.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter4"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow3"]
-margin_left = 203.0
-margin_right = 250.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter5"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="WordRow4" type="HBoxContainer" parent="Words/WordRows"]
-margin_top = 176.0
-margin_right = 250.0
-margin_bottom = 231.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Letter1" type="ColorRect" parent="Words/WordRows/WordRow4"]
-margin_right = 46.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter1"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow4"]
-margin_left = 50.0
-margin_right = 97.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter2"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow4"]
-margin_left = 101.0
-margin_right = 148.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter3"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow4"]
-margin_left = 152.0
-margin_right = 199.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter4"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow4"]
-margin_left = 203.0
-margin_right = 250.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter5"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="WordRow5" type="HBoxContainer" parent="Words/WordRows"]
-margin_top = 235.0
-margin_right = 250.0
-margin_bottom = 290.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Letter1" type="ColorRect" parent="Words/WordRows/WordRow5"]
-margin_right = 46.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter1"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow5"]
-margin_left = 50.0
-margin_right = 97.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter2"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow5"]
-margin_left = 101.0
-margin_right = 148.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter3"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow5"]
-margin_left = 152.0
-margin_right = 199.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter4"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow5"]
-margin_left = 203.0
-margin_right = 250.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter5"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="WordRow6" type="HBoxContainer" parent="Words/WordRows"]
-margin_top = 294.0
-margin_right = 250.0
-margin_bottom = 349.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Letter1" type="ColorRect" parent="Words/WordRows/WordRow6"]
-margin_right = 46.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter1"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow6"]
-margin_left = 50.0
-margin_right = 97.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter2"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow6"]
-margin_left = 101.0
-margin_right = 148.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter3"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow6"]
-margin_left = 152.0
-margin_right = 199.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter4"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow6"]
-margin_left = 203.0
-margin_right = 250.0
-margin_bottom = 55.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.352941, 0.352941, 0.352941, 1 )
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter5"]
+layout_mode = 0
 anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.2
 anchor_bottom = 0.2
-custom_fonts/font = ExtResource( 1 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Message" type="Label" parent="Words"]
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.6
 anchor_right = 0.5
 anchor_bottom = 0.6
-margin_left = -240.0
-margin_top = -25.0
-margin_right = 240.0
-margin_bottom = 25.0
-custom_fonts/font = ExtResource( 1 )
+offset_left = -240.0
+offset_top = -25.0
+offset_right = 240.0
+offset_bottom = 25.0
 text = "Godot Wordle"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Keyboard" parent="." instance=ExtResource( 3 )]
+[node name="Keyboard" parent="." instance=ExtResource("3")]
+unique_name_in_owner = true

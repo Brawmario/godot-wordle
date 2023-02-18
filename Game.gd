@@ -7,7 +7,7 @@ var word_attempt := ""
 var current_attempt := 1
 var current_letter := 1
 
-onready var word_rows := [
+@onready var word_rows := [
 	$Words/WordRows/WordRow1,
 	$Words/WordRows/WordRow2,
 	$Words/WordRows/WordRow3,
@@ -15,6 +15,7 @@ onready var word_rows := [
 	$Words/WordRows/WordRow5,
 	$Words/WordRows/WordRow6,
 ]
+@onready var keyboard := %Keyboard as Keyboard
 
 
 func _ready():
@@ -22,19 +23,20 @@ func _ready():
 
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.unicode != 0:
-			var letter := char(event.unicode).to_upper()
+	var key_event := event as InputEventKey
+	if key_event and key_event.pressed:
+		if key_event.unicode != 0:
+			var letter := char(key_event.unicode).to_upper()
 			if current_letter <= 5:
 				word_attempt += letter
 				update_letter_panel(letter, current_attempt, current_letter)
 				current_letter += 1
-		elif event.scancode == KEY_BACKSPACE:
+		elif key_event.keycode == KEY_BACKSPACE:
 			if current_letter > 1:
 				current_letter -= 1
-			word_attempt.erase(current_letter - 1, 1)
+			word_attempt = word_attempt.left(current_letter - 1)
 			update_letter_panel("", current_attempt, current_letter)
-		elif event.scancode == KEY_ENTER:
+		elif key_event.keycode == KEY_ENTER:
 			if word_attempt.length() < 5:
 				$Words/Message.text = "Type 5 letters"
 				return
@@ -45,7 +47,7 @@ func _input(event):
 				return
 			for i in range(5):
 				update_color_panel(attempt_result[i], current_attempt, i + 1)
-				$Keyboard.change_letter_key_color(word_attempt[i], attempt_result[i])
+				keyboard.change_letter_key_color(word_attempt[i], attempt_result[i])
 			if word_attempt == word_to_guess:
 				$Words/Message.text = "You Win!"
 				set_process_input(false)
@@ -60,8 +62,8 @@ func _input(event):
 			$Words/Message.text = "Godot Wordle"
 
 
-func check_word(word: String, correct_word: String) -> Array:
-	var result := [
+func check_word(word: String, correct_word: String) -> Array[Globals.CheckLetter]:
+	var result: Array[Globals.CheckLetter] = [
 		Globals.CheckLetter.NOT_CHECKED,
 		Globals.CheckLetter.NOT_CHECKED,
 		Globals.CheckLetter.NOT_CHECKED,
@@ -101,8 +103,8 @@ func update_color_panel(check_letter: int, attempt_number: int, letter_number: i
 	var panel: ColorRect = word_rows[attempt_number - 1].get_node("Letter" + str(letter_number))
 	match check_letter:
 		Globals.CheckLetter.NOT_IN_WORD:
-			panel.color = Color.black
+			panel.color = Color.BLACK
 		Globals.CheckLetter.WRONG_PLACE:
-			panel.color = Color.yellow
+			panel.color = Color.YELLOW
 		Globals.CheckLetter.CORRECT:
-			panel.color = Color.yellowgreen
+			panel.color = Color.YELLOW_GREEN

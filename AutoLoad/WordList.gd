@@ -3,9 +3,9 @@ extends Node
 
 const FIRST_DATE := {
 	"year": 2021,
-	"month": OS.MONTH_JUNE,
+	"month": Time.MONTH_JUNE,
 	"day": 19,
-	"weekday": OS.DAY_WEDNESDAY,
+	"weekday": Time.WEEKDAY_WEDNESDAY,
 	"dst": false,
 }
 
@@ -15,13 +15,13 @@ const DICTIONARY := ["abaci", "aback", "abaft", "abase", "abash", "abate", "abbe
 
 
 func get_todays_word() -> String:
-	return WORDS[_days_between_dates(FIRST_DATE, OS.get_date()) % WORDS.size()]
+	return WORDS[_days_between_dates(FIRST_DATE, Time.get_date_dict_from_system()) % WORDS.size()]
 
 
 func _count_leap_years(date: Dictionary):
 	var years = date.year
 
-	if (date.month <= OS.MONTH_FEBRUARY):
+	if (date.month <= Time.MONTH_FEBRUARY):
 		years -= 1
 
 	var days = int(years / 4)

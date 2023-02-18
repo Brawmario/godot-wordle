@@ -6,13 +6,14 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
 [application]
 
 config/name="Godot Wordle"
 run/main_scene="res://Game.tscn"
-config/icon="res://icon.png"
+config/features=PackedStringArray("4.0")
+config/icon="res://icon.svg"
 
 [autoload]
 
@@ -21,11 +22,10 @@ WordList="*res://AutoLoad/WordList.gd"
 
 [display]
 
-window/size/width=480
-window/size/height=720
+window/size/viewport_width=480
+window/size/viewport_height=720
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
 
 [physics]
 
@@ -33,7 +33,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
+renderer/rendering_method="gl_compatibility"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"

@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cv08cvrbiue58"]
+
+[ext_resource type="FontFile" uid="uid://b15uxqhn668b3" path="res://Assets/Fonts/Some.Time.Later.otf" id="1_0rvvf"]
+
+[resource]
+font = ExtResource("1_0rvvf")
+font_size = 50
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)

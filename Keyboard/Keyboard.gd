@@ -19,7 +19,7 @@ func change_letter_key_color(letter: String, check_letter: int) -> void:
 					key.self_modulate = Color.WHITE
 				Globals.CheckLetter.NOT_IN_WORD:
 					if key.self_modulate != Color.YELLOW and key.self_modulate != Color.YELLOW_GREEN:
-						key.self_modulate = Color.RED
+						key.self_modulate = Color.INDIAN_RED
 				Globals.CheckLetter.WRONG_PLACE:
 					if key.self_modulate != Color.YELLOW_GREEN:
 						key.self_modulate = Color.YELLOW

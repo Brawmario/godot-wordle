@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://duniqv3b8fph5"]
+[gd_scene load_steps=4 format=3 uid="uid://duniqv3b8fph5"]
 
 [ext_resource type="Script" path="res://Game.gd" id="2"]
+[ext_resource type="LabelSettings" uid="uid://cv08cvrbiue58" path="res://Assets/Fonts/LabelSettings.tres" id="2_6jc3w"]
 [ext_resource type="PackedScene" uid="uid://dmfq6ywgajjru" path="res://Keyboard/Keyboard.tscn" id="3"]
 
 [node name="Game" type="Node"]
@@ -29,11 +30,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter1"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow1"]
 layout_mode = 2
@@ -42,11 +52,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter2"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow1"]
 layout_mode = 2
@@ -55,11 +74,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter3"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow1"]
 layout_mode = 2
@@ -68,11 +96,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter4"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow1"]
 layout_mode = 2
@@ -81,11 +118,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow1/Letter5"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="WordRow2" type="HBoxContainer" parent="Words/WordRows"]
 layout_mode = 2
@@ -99,11 +145,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter1"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow2"]
 layout_mode = 2
@@ -112,11 +167,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter2"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow2"]
 layout_mode = 2
@@ -125,11 +189,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter3"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow2"]
 layout_mode = 2
@@ -138,11 +211,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter4"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow2"]
 layout_mode = 2
@@ -151,11 +233,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow2/Letter5"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="WordRow3" type="HBoxContainer" parent="Words/WordRows"]
 layout_mode = 2
@@ -169,11 +260,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter1"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow3"]
 layout_mode = 2
@@ -182,11 +282,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter2"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow3"]
 layout_mode = 2
@@ -195,11 +304,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter3"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow3"]
 layout_mode = 2
@@ -208,11 +326,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter4"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow3"]
 layout_mode = 2
@@ -221,11 +348,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow3/Letter5"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="WordRow4" type="HBoxContainer" parent="Words/WordRows"]
 layout_mode = 2
@@ -239,11 +375,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter1"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow4"]
 layout_mode = 2
@@ -252,11 +397,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter2"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow4"]
 layout_mode = 2
@@ -265,11 +419,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter3"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow4"]
 layout_mode = 2
@@ -278,11 +441,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter4"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow4"]
 layout_mode = 2
@@ -291,11 +463,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow4/Letter5"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="WordRow5" type="HBoxContainer" parent="Words/WordRows"]
 layout_mode = 2
@@ -309,11 +490,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter1"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow5"]
 layout_mode = 2
@@ -322,11 +512,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter2"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow5"]
 layout_mode = 2
@@ -335,11 +534,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter3"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow5"]
 layout_mode = 2
@@ -348,11 +556,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter4"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow5"]
 layout_mode = 2
@@ -361,11 +578,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow5/Letter5"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="WordRow6" type="HBoxContainer" parent="Words/WordRows"]
 layout_mode = 2
@@ -379,11 +605,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter1"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter2" type="ColorRect" parent="Words/WordRows/WordRow6"]
 layout_mode = 2
@@ -392,11 +627,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter2"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter3" type="ColorRect" parent="Words/WordRows/WordRow6"]
 layout_mode = 2
@@ -405,11 +649,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter3"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter4" type="ColorRect" parent="Words/WordRows/WordRow6"]
 layout_mode = 2
@@ -418,11 +671,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter4"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Letter5" type="ColorRect" parent="Words/WordRows/WordRow6"]
 layout_mode = 2
@@ -431,11 +693,20 @@ size_flags_vertical = 3
 color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="Letter" type="Label" parent="Words/WordRows/WordRow6/Letter5"]
-layout_mode = 0
-anchor_left = 0.2
-anchor_top = 0.2
-anchor_right = 0.2
-anchor_bottom = 0.2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -53.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Message" type="Label" parent="Words"]
 anchors_preset = -1
@@ -448,6 +719,9 @@ offset_top = -25.0
 offset_right = 240.0
 offset_bottom = 25.0
 text = "Godot Wordle"
+label_settings = ExtResource("2_6jc3w")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Keyboard" parent="." instance=ExtResource("3")]
 unique_name_in_owner = true

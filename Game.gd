@@ -103,7 +103,7 @@ func update_color_panel(check_letter: int, attempt_number: int, letter_number: i
 	var panel: ColorRect = word_rows[attempt_number - 1].get_node("Letter" + str(letter_number))
 	match check_letter:
 		Globals.CheckLetter.NOT_IN_WORD:
-			panel.color = Color.BLACK
+			panel.color = Color.INDIAN_RED
 		Globals.CheckLetter.WRONG_PLACE:
 			panel.color = Color.YELLOW
 		Globals.CheckLetter.CORRECT:

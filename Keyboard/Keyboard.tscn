@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmfq6ywgajjru"]
+[gd_scene load_steps=3 format=3 uid="uid://dmfq6ywgajjru"]
 
 [ext_resource type="Script" path="res://Keyboard/Keyboard.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://b15uxqhn668b3" path="res://Assets/Fonts/Some.Time.Later.otf" id="2_x5twa"]
 
 [node name="Keyboard" type="VBoxContainer"]
 anchors_preset = 12
@@ -17,42 +18,62 @@ size_flags_vertical = 3
 
 [node name="Q" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "Q"
 
 [node name="W" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "W"
 
 [node name="E" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "E"
 
 [node name="R" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "R"
 
 [node name="T" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "T"
 
 [node name="Y" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "Y"
 
 [node name="U" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "U"
 
 [node name="I" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "I"
 
 [node name="O" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "O"
 
 [node name="P" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "P"
 
 [node name="KeyRow2" type="HBoxContainer" parent="."]
@@ -62,43 +83,63 @@ size_flags_vertical = 3
 
 [node name="A" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "A"
 
 [node name="S" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "S"
 
 [node name="D" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "D"
 
 [node name="F" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "F"
 
 [node name="G" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "G"
 
 [node name="H" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "H"
 
 [node name="J" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "J"
 
 [node name="K" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "K"
 
 [node name="L" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "L"
 
 [node name="BackSpace" type="Button" parent="KeyRow2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "Del"
 
 [node name="KeyRow3" type="HBoxContainer" parent="."]
@@ -108,35 +149,51 @@ size_flags_vertical = 3
 
 [node name="Z" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "Z"
 
 [node name="X" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "X"
 
 [node name="C" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "C"
 
 [node name="V" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "V"
 
 [node name="B" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "B"
 
 [node name="N" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "N"
 
 [node name="M" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "M"
 
 [node name="Enter" type="Button" parent="KeyRow3"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_x5twa")
+theme_override_font_sizes/font_size = 50
 text = "Enter"
 
 [connection signal="pressed" from="KeyRow2/BackSpace" to="." method="_on_BackSpace_pressed"]

@@ -19,6 +19,7 @@ offset_right = 125.0
 offset_bottom = 370.0
 
 [node name="WordRow1" type="HBoxContainer" parent="Words/WordRows"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -134,6 +135,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="WordRow2" type="HBoxContainer" parent="Words/WordRows"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -249,6 +251,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="WordRow3" type="HBoxContainer" parent="Words/WordRows"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -364,6 +367,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="WordRow4" type="HBoxContainer" parent="Words/WordRows"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -479,6 +483,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="WordRow5" type="HBoxContainer" parent="Words/WordRows"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -594,6 +599,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="WordRow6" type="HBoxContainer" parent="Words/WordRows"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -709,6 +715,7 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Message" type="Label" parent="Words"]
+unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.6

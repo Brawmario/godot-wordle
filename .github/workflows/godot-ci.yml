@@ -60,7 +60,6 @@ jobs:
           apt-get update && apt-get install -y rsync
       - name: Deploy to GitHub Pages
         if: matrix.PLATFORM == 'web'
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
           folder: build/web

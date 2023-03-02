@@ -1,18 +1,18 @@
 name: godot-ci export
 on:
   push:
-    tags:
-      - 'v*.*.*'
+#    tags:
+#      - 'v*.*.*'
 
 env:
-  GODOT_VERSION: 3.4.4
+  GODOT_VERSION: 4.0
 
 jobs:
   export-game:
     name: Export game to ${{ matrix.PLATFORM }}
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:3.4.4
+      image: barichello/godot-ci:4.0
     strategy:
       matrix:
         include:
@@ -45,21 +45,21 @@ jobs:
         with:
           name: godot-wordle.${{ github.ref_name }}.${{ matrix.PLATFORM }}
           path: build/${{ matrix.PLATFORM }}
-      - name: Butler Upload
-        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
-        env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: ${{ matrix.PLATFORM }}
-          ITCH_GAME: godot-wordle
-          ITCH_USER: brawmario
-          PACKAGE: build/${{ matrix.PLATFORM }}
-          VERSION: ${{ github.ref_name }}
-      - name: Install rsync
-        if: matrix.PLATFORM == 'web'
-        run: |
-          apt-get update && apt-get install -y rsync
-      - name: Deploy to GitHub Pages
-        if: matrix.PLATFORM == 'web'
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build/web
+#      - name: Butler Upload
+#        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
+#        env:
+#          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+#          CHANNEL: ${{ matrix.PLATFORM }}
+#          ITCH_GAME: godot-wordle
+#          ITCH_USER: brawmario
+#          PACKAGE: build/${{ matrix.PLATFORM }}
+#          VERSION: ${{ github.ref_name }}
+#      - name: Install rsync
+#        if: matrix.PLATFORM == 'web'
+#        run: |
+#          apt-get update && apt-get install -y rsync
+#      - name: Deploy to GitHub Pages
+#        if: matrix.PLATFORM == 'web'
+#        uses: JamesIves/github-pages-deploy-action@v4
+#        with:
+#          folder: build/web

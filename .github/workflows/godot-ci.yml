@@ -12,7 +12,7 @@ jobs:
     name: Export game to ${{ matrix.PLATFORM }}
     runs-on: ubuntu-latest
     container:
-      image: barichello/godot-ci:4.0
+      image: barichello/godot-ci:4.0-stable
     strategy:
       matrix:
         include:

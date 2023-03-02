@@ -2,49 +2,32 @@ name: godot-ci export
 on:
   push:
 #    tags:
-#      - 'v*.*.*'
+#      - 'v*'
 
 env:
   GODOT_VERSION: 4.0
 
 jobs:
   export-game:
-    name: Export game to ${{ matrix.PLATFORM }}
+    name: Export game
     runs-on: ubuntu-latest
-    container:
-      image: barichello/godot-ci:4.0-stable
-    strategy:
-      matrix:
-        include:
-          - PLATFORM: windows
-            EXPORT_PRESET: Windows Desktop
-            EXPORT_FILENAME: godot-wordle.exe
-          - PLATFORM: linux
-            EXPORT_PRESET: Linux/X11
-            EXPORT_FILENAME: godot-wordle.x86_64
-          - PLATFORM: mac
-            EXPORT_PRESET: Mac OSX
-            EXPORT_FILENAME: godot-wordle.zip
-          - PLATFORM: web
-            EXPORT_PRESET: HTML5
-            EXPORT_FILENAME: index.html
-      fail-fast: true
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Build
-        run: |
-          mkdir -v -p build/${{ matrix.PLATFORM }}
-          godot -v --export "${{ matrix.EXPORT_PRESET }}" build/${{ matrix.PLATFORM }}/${{ matrix.EXPORT_FILENAME }}
+      - name: Export
+        id: export
+        uses: firebelley/godot-export@v4.7.0
+        with:
+          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+          relative_project_path: ./
+          use_preset_export_path: true
+          use_godot_4: true
       - name: Upload Artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: godot-wordle.${{ github.ref_name }}.${{ matrix.PLATFORM }}
-          path: build/${{ matrix.PLATFORM }}
+          path: ${{ steps.export.outputs.archive_directory }}/*
 #      - name: Butler Upload
 #        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
 #        env:

@@ -27,7 +27,7 @@ jobs:
       - name: Upload MacOS Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: godot-wordle.${{ github.ref_name }}.macos
+          name: godot-wordle.${{ github.ref_name }}.mac
           path: ${{ steps.export.outputs.build_directory }}/macOS
       - name: Upload Linux Artifact
         uses: actions/upload-artifact@v3

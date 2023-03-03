@@ -18,6 +18,7 @@ jobs:
           godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
           relative_project_path: ./
+          archive_output: true
           use_preset_export_path: true
           use_godot_4: true
       - name: Upload Artifact

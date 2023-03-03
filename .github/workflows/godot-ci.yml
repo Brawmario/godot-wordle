@@ -18,14 +18,27 @@ jobs:
           godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
           godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
           relative_project_path: ./
-          archive_output: true
-          use_preset_export_path: true
           use_godot_4: true
-      - name: Upload Artifact
+      - name: Upload Windows Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: godot-wordle.${{ github.ref_name }}
-          path: ${{ steps.export.outputs.archive_directory }}/*
+          name: godot-wordle.${{ github.ref_name }}.windows
+          path: ${{ steps.export.outputs.build_directory }}/Windows Desktop
+      - name: Upload MacOS Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: godot-wordle.${{ github.ref_name }}.macos
+          path: ${{ steps.export.outputs.build_directory }}/macOS
+      - name: Upload Linux Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: godot-wordle.${{ github.ref_name }}.linux
+          path: ${{ steps.export.outputs.build_directory }}/LinuxX11
+      - name: Upload Web Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: godot-wordle.${{ github.ref_name }}.web
+          path: ${{ steps.export.outputs.build_directory }}/Web
 #      - name: Butler Upload
 #        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
 #        env:

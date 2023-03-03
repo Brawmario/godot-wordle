@@ -1,8 +1,8 @@
-name: godot-ci export
+name: Godot CI
 on:
   push:
-#    tags:
-#      - 'v*'
+    tags:
+      - 'v*'
 
 env:
   GAME_NAME: godot-wordle
@@ -42,21 +42,41 @@ jobs:
         with:
           name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.web
           path: ${{ steps.export.outputs.build_directory }}/Web
-#      - name: Butler Upload
-#        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
-#        env:
-#          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-#          CHANNEL: ${{ matrix.PLATFORM }}
-#          ITCH_GAME: ${{ env.GAME_NAME }}
-#          ITCH_USER: brawmario
-#          PACKAGE: build/${{ matrix.PLATFORM }}
-#          VERSION: ${{ github.ref_name }}
-#      - name: Install rsync
-#        if: matrix.PLATFORM == 'web'
-#        run: |
-#          apt-get update && apt-get install -y rsync
-#      - name: Deploy to GitHub Pages
-#        if: matrix.PLATFORM == 'web'
-#        uses: JamesIves/github-pages-deploy-action@v4
-#        with:
-#          folder: build/web
+
+  itch-io-upload:
+    name: Upload to Itch.io
+    needs: export-game
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [windows, mac, linux, web]
+    steps:
+      - name: Download Artifact (${{ matrix.platform }})
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.${{ matrix.platform }}
+      - name: Butler Upload
+        uses: josephbmanley/butler-publish-itchio-action@v1
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: ${{ matrix.platform }}
+          ITCH_GAME: ${{ env.GAME_NAME }}
+          ITCH_USER: brawmario
+          PACKAGE: .
+          VERSION: ${{ github.ref_name }}
+
+  pages-deploy:
+    name: Deploy to GitHub Pages
+    needs: export-game
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact (web)
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.web
+      - name: Install rsync
+        run: apt-get update && apt-get install -y rsync
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: .

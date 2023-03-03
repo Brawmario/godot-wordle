@@ -4,9 +4,6 @@ on:
 #    tags:
 #      - 'v*'
 
-env:
-  GODOT_VERSION: 4.0
-
 jobs:
   export-game:
     name: Export game

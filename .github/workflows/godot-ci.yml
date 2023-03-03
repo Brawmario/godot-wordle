@@ -23,7 +23,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: godot-wordle.${{ github.ref_name }}.${{ matrix.PLATFORM }}
+          name: godot-wordle.${{ github.ref_name }}
           path: ${{ steps.export.outputs.archive_directory }}/*
 #      - name: Butler Upload
 #        uses: josephbmanley/butler-publish-itchio-action@v1.0.3

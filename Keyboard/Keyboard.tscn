@@ -16,61 +16,61 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Q" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="Q" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "Q"
 
-[node name="W" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="W" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "W"
 
-[node name="E" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="E" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "E"
 
-[node name="R" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="R" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "R"
 
-[node name="T" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="T" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "T"
 
-[node name="Y" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="Y" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "Y"
 
-[node name="U" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="U" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "U"
 
-[node name="I" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="I" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "I"
 
-[node name="O" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="O" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "O"
 
-[node name="P" type="Button" parent="KeyRow1" groups=["LetterKeys"]]
+[node name="P" type="Button" parent="KeyRow1" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
@@ -81,55 +81,55 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="A" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="A" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "A"
 
-[node name="S" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="S" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "S"
 
-[node name="D" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="D" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "D"
 
-[node name="F" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="F" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "F"
 
-[node name="G" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="G" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "G"
 
-[node name="H" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="H" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "H"
 
-[node name="J" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="J" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "J"
 
-[node name="K" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="K" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "K"
 
-[node name="L" type="Button" parent="KeyRow2" groups=["LetterKeys"]]
+[node name="L" type="Button" parent="KeyRow2" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
@@ -147,43 +147,43 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Z" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
+[node name="Z" type="Button" parent="KeyRow3" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "Z"
 
-[node name="X" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
+[node name="X" type="Button" parent="KeyRow3" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "X"
 
-[node name="C" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
+[node name="C" type="Button" parent="KeyRow3" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "C"
 
-[node name="V" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
+[node name="V" type="Button" parent="KeyRow3" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "V"
 
-[node name="B" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
+[node name="B" type="Button" parent="KeyRow3" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "B"
 
-[node name="N" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
+[node name="N" type="Button" parent="KeyRow3" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50
 text = "N"
 
-[node name="M" type="Button" parent="KeyRow3" groups=["LetterKeys"]]
+[node name="M" type="Button" parent="KeyRow3" groups=["letter_keys"]]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_x5twa")
 theme_override_font_sizes/font_size = 50

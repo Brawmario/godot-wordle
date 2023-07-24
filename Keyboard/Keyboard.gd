@@ -42,7 +42,7 @@ func _send_input_event_with_unicode(unicode: int) -> void:
 	Input.parse_input_event(event)
 
 
-func _send_input_event_with_keycode(keycode: int):
+func _send_input_event_with_keycode(keycode: Key):
 	var event := InputEventKey.new()
 	event.pressed = true
 	event.keycode = keycode

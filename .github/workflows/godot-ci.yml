@@ -4,43 +4,60 @@ on:
     tags:
       - 'v*'
 
-env:
-  GAME_NAME: godot-wordle
-
 jobs:
   export-game:
     name: Export game
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install Wine
+        id: wine_install
+        run: |
+          sudo apt install wine64
+          echo "WINE_PATH=$(which wine64)" >> $GITHUB_OUTPUT
       - name: Export
         id: export
-        uses: firebelley/godot-export@v4.7.0
+        uses: firebelley/godot-export@v5.2.0
         with:
-          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_linux.x86_64.zip
-          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.0/Godot_v4.0-stable_export_templates.tpz
+          godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/4.1.1/Godot_v4.1.1-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/4.1.1/Godot_v4.1.1-stable_export_templates.tpz
           relative_project_path: ./
-          use_godot_4: true
-      - name: Upload Windows Artifact
+          cache: true
+          archive_output: true
+          wine_path: ${{ steps.wine_install.outputs.WINE_PATH }}
+      - name: Rename archives
+        run: |
+          cd ${{ steps.export.outputs.archive_directory }}
+          mv "Windows Desktop.zip" "${{ github.event.repository.name }}.${{ github.ref_name }}.windows.zip"
+          mv "macOS.zip" "${{ github.event.repository.name }}.${{ github.ref_name }}.mac.zip"
+          mv "LinuxX11.zip" "${{ github.event.repository.name }}.${{ github.ref_name }}.linux.zip"
+          mv "Web.zip" "${{ github.event.repository.name }}.${{ github.ref_name }}.web.zip"
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: ${{ steps.export.outputs.archive_directory }}/*
+      - name: Upload Windows artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.windows
+          name: ${{ github.event.repository.name }}.${{ github.ref_name }}.windows
           path: ${{ steps.export.outputs.build_directory }}/Windows Desktop
-      - name: Upload MacOS Artifact
+      - name: Upload MacOS artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.mac
+          name: ${{ github.event.repository.name }}.${{ github.ref_name }}.mac
           path: ${{ steps.export.outputs.build_directory }}/macOS
-      - name: Upload Linux Artifact
+      - name: Upload Linux artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.linux
+          name: ${{ github.event.repository.name }}.${{ github.ref_name }}.linux
           path: ${{ steps.export.outputs.build_directory }}/LinuxX11
-      - name: Upload Web Artifact
+      - name: Upload Web artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.web
+          name: ${{ github.event.repository.name }}.${{ github.ref_name }}.web
           path: ${{ steps.export.outputs.build_directory }}/Web
 
   itch-io-upload:
@@ -51,16 +68,16 @@ jobs:
       matrix:
         platform: [windows, mac, linux, web]
     steps:
-      - name: Download Artifact (${{ matrix.platform }})
+      - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.${{ matrix.platform }}
+          name: ${{ github.event.repository.name }}.${{ github.ref_name }}.${{ matrix.platform }}
       - name: Butler Upload
         uses: josephbmanley/butler-publish-itchio-action@v1.0.3
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: ${{ matrix.platform }}
-          ITCH_GAME: ${{ env.GAME_NAME }}
+          ITCH_GAME: ${{ github.event.repository.name }}
           ITCH_USER: brawmario
           PACKAGE: .
           VERSION: ${{ github.ref_name }}
@@ -75,7 +92,7 @@ jobs:
       - name: Download Artifact (web)
         uses: actions/download-artifact@v3
         with:
-          name: ${{ env.GAME_NAME }}.${{ github.ref_name }}.web
+          name: ${{ github.event.repository.name }}.${{ github.ref_name }}.web
           path: export/web
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4

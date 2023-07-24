@@ -4955,8 +4955,19 @@ function ___syscall_faccessat(dirfd, path, amode, flags) {
  }
 }
 
+function ___syscall_fchmod(fd, mode) {
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(11, 1, fd, mode);
+ try {
+  FS.fchmod(fd, mode);
+  return 0;
+ } catch (e) {
+  if (typeof FS == "undefined" || !(e instanceof FS.ErrnoError)) throw e;
+  return -e.errno;
+ }
+}
+
 function ___syscall_fcntl64(fd, cmd, varargs) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(11, 1, fd, cmd, varargs);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(12, 1, fd, cmd, varargs);
  SYSCALLS.varargs = varargs;
  try {
   var stream = SYSCALLS.getStreamFromFD(fd);
@@ -5018,7 +5029,7 @@ function ___syscall_fcntl64(fd, cmd, varargs) {
 }
 
 function ___syscall_getcwd(buf, size) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(12, 1, buf, size);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(13, 1, buf, size);
  try {
   if (size === 0) return -28;
   var cwd = FS.cwd();
@@ -5033,7 +5044,7 @@ function ___syscall_getcwd(buf, size) {
 }
 
 function ___syscall_getdents64(fd, dirp, count) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(13, 1, fd, dirp, count);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(14, 1, fd, dirp, count);
  try {
   var stream = SYSCALLS.getStreamFromFD(fd);
   if (!stream.getdents) {
@@ -5082,7 +5093,7 @@ function ___syscall_getdents64(fd, dirp, count) {
 }
 
 function ___syscall_getsockname(fd, addr, addrlen) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(14, 1, fd, addr, addrlen);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(15, 1, fd, addr, addrlen);
  try {
   err("__syscall_getsockname " + fd);
   var sock = getSocketFromFD(fd);
@@ -5096,7 +5107,7 @@ function ___syscall_getsockname(fd, addr, addrlen) {
 }
 
 function ___syscall_getsockopt(fd, level, optname, optval, optlen) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(15, 1, fd, level, optname, optval, optlen);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(16, 1, fd, level, optname, optval, optlen);
  try {
   var sock = getSocketFromFD(fd);
   if (level === 1) {
@@ -5115,7 +5126,7 @@ function ___syscall_getsockopt(fd, level, optname, optval, optlen) {
 }
 
 function ___syscall_ioctl(fd, op, varargs) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(16, 1, fd, op, varargs);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(17, 1, fd, op, varargs);
  SYSCALLS.varargs = varargs;
  try {
   var stream = SYSCALLS.getStreamFromFD(fd);
@@ -5180,7 +5191,7 @@ function ___syscall_ioctl(fd, op, varargs) {
 }
 
 function ___syscall_listen(fd, backlog) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(17, 1, fd, backlog);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(18, 1, fd, backlog);
  try {
   var sock = getSocketFromFD(fd);
   sock.sock_ops.listen(sock, backlog);
@@ -5192,7 +5203,7 @@ function ___syscall_listen(fd, backlog) {
 }
 
 function ___syscall_lstat64(path, buf) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(18, 1, path, buf);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(19, 1, path, buf);
  try {
   path = SYSCALLS.getStr(path);
   return SYSCALLS.doStat(FS.lstat, path, buf);
@@ -5203,7 +5214,7 @@ function ___syscall_lstat64(path, buf) {
 }
 
 function ___syscall_mkdirat(dirfd, path, mode) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(19, 1, dirfd, path, mode);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(20, 1, dirfd, path, mode);
  try {
   path = SYSCALLS.getStr(path);
   path = SYSCALLS.calculateAt(dirfd, path);
@@ -5218,7 +5229,7 @@ function ___syscall_mkdirat(dirfd, path, mode) {
 }
 
 function ___syscall_newfstatat(dirfd, path, buf, flags) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(20, 1, dirfd, path, buf, flags);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(21, 1, dirfd, path, buf, flags);
  try {
   path = SYSCALLS.getStr(path);
   var nofollow = flags & 256;
@@ -5234,7 +5245,7 @@ function ___syscall_newfstatat(dirfd, path, buf, flags) {
 }
 
 function ___syscall_openat(dirfd, path, flags, varargs) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(21, 1, dirfd, path, flags, varargs);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(22, 1, dirfd, path, flags, varargs);
  SYSCALLS.varargs = varargs;
  try {
   path = SYSCALLS.getStr(path);
@@ -5248,7 +5259,7 @@ function ___syscall_openat(dirfd, path, flags, varargs) {
 }
 
 function ___syscall_poll(fds, nfds, timeout) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(22, 1, fds, nfds, timeout);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(23, 1, fds, nfds, timeout);
  try {
   var nonzero = 0;
   for (var i = 0; i < nfds; i++) {
@@ -5275,7 +5286,7 @@ function ___syscall_poll(fds, nfds, timeout) {
 }
 
 function ___syscall_readlinkat(dirfd, path, buf, bufsize) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(23, 1, dirfd, path, buf, bufsize);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(24, 1, dirfd, path, buf, bufsize);
  try {
   path = SYSCALLS.getStr(path);
   path = SYSCALLS.calculateAt(dirfd, path);
@@ -5293,7 +5304,7 @@ function ___syscall_readlinkat(dirfd, path, buf, bufsize) {
 }
 
 function ___syscall_recvfrom(fd, buf, len, flags, addr, addrlen) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(24, 1, fd, buf, len, flags, addr, addrlen);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(25, 1, fd, buf, len, flags, addr, addrlen);
  try {
   var sock = getSocketFromFD(fd);
   var msg = sock.sock_ops.recvmsg(sock, len);
@@ -5311,7 +5322,7 @@ function ___syscall_recvfrom(fd, buf, len, flags, addr, addrlen) {
 }
 
 function ___syscall_renameat(olddirfd, oldpath, newdirfd, newpath) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(25, 1, olddirfd, oldpath, newdirfd, newpath);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(26, 1, olddirfd, oldpath, newdirfd, newpath);
  try {
   oldpath = SYSCALLS.getStr(oldpath);
   newpath = SYSCALLS.getStr(newpath);
@@ -5326,7 +5337,7 @@ function ___syscall_renameat(olddirfd, oldpath, newdirfd, newpath) {
 }
 
 function ___syscall_rmdir(path) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(26, 1, path);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(27, 1, path);
  try {
   path = SYSCALLS.getStr(path);
   FS.rmdir(path);
@@ -5338,7 +5349,7 @@ function ___syscall_rmdir(path) {
 }
 
 function ___syscall_sendto(fd, message, length, flags, addr, addr_len) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(27, 1, fd, message, length, flags, addr, addr_len);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(28, 1, fd, message, length, flags, addr, addr_len);
  try {
   var sock = getSocketFromFD(fd);
   var dest = getSocketAddress(addr, addr_len, true);
@@ -5353,7 +5364,7 @@ function ___syscall_sendto(fd, message, length, flags, addr, addr_len) {
 }
 
 function ___syscall_socket(domain, type, protocol) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(28, 1, domain, type, protocol);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(29, 1, domain, type, protocol);
  try {
   var sock = SOCKFS.createSocket(domain, type, protocol);
   assert(sock.stream.fd < 64);
@@ -5365,7 +5376,7 @@ function ___syscall_socket(domain, type, protocol) {
 }
 
 function ___syscall_stat64(path, buf) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(29, 1, path, buf);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(30, 1, path, buf);
  try {
   path = SYSCALLS.getStr(path);
   return SYSCALLS.doStat(FS.stat, path, buf);
@@ -5376,7 +5387,7 @@ function ___syscall_stat64(path, buf) {
 }
 
 function ___syscall_statfs64(path, size, buf) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(30, 1, path, size, buf);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(31, 1, path, size, buf);
  try {
   path = SYSCALLS.getStr(path);
   assert(size === 64);
@@ -5398,7 +5409,7 @@ function ___syscall_statfs64(path, size, buf) {
 }
 
 function ___syscall_symlink(target, linkpath) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(31, 1, target, linkpath);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(32, 1, target, linkpath);
  try {
   target = SYSCALLS.getStr(target);
   linkpath = SYSCALLS.getStr(linkpath);
@@ -5411,7 +5422,7 @@ function ___syscall_symlink(target, linkpath) {
 }
 
 function ___syscall_unlinkat(dirfd, path, flags) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(32, 1, dirfd, path, flags);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(33, 1, dirfd, path, flags);
  try {
   path = SYSCALLS.getStr(path);
   path = SYSCALLS.calculateAt(dirfd, path);
@@ -5540,7 +5551,7 @@ function __localtime_js(time, tmPtr) {
 }
 
 function __mmap_js(len, prot, flags, fd, off, allocated) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(33, 1, len, prot, flags, fd, off, allocated);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(34, 1, len, prot, flags, fd, off, allocated);
  try {
   var stream = FS.getStream(fd);
   if (!stream) return -8;
@@ -5555,7 +5566,7 @@ function __mmap_js(len, prot, flags, fd, off, allocated) {
 }
 
 function __munmap_js(addr, len, prot, flags, fd, offset) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(34, 1, addr, len, prot, flags, fd, offset);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(35, 1, addr, len, prot, flags, fd, offset);
  try {
   var stream = FS.getStream(fd);
   if (stream) {
@@ -5578,7 +5589,7 @@ function allocateUTF8(str) {
 }
 
 function _tzset_impl(timezone, daylight, tzname) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(35, 1, timezone, daylight, tzname);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(36, 1, timezone, daylight, tzname);
  var currentYear = new Date().getFullYear();
  var winter = new Date(currentYear, 0, 1);
  var summer = new Date(currentYear, 6, 1);
@@ -6351,7 +6362,7 @@ function _emscripten_console_error(str) {
 }
 
 function _emscripten_force_exit(status) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(36, 1, status);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(37, 1, status);
  noExitRuntime = false;
  runtimeKeepaliveCounter = 0;
  _exit(status);
@@ -7622,6 +7633,24 @@ function _emscripten_glUniform1i(location, v0) {
  GLctx.uniform1i(webglGetUniformLocation(location), v0);
 }
 
+var __miniTempWebGLIntBuffers = [];
+
+function _emscripten_glUniform1iv(location, count, value) {
+ if (GL.currentContext.version >= 2) {
+  count && GLctx.uniform1iv(webglGetUniformLocation(location), GROWABLE_HEAP_I32(), value >> 2, count);
+  return;
+ }
+ if (count <= 288) {
+  var view = __miniTempWebGLIntBuffers[count - 1];
+  for (var i = 0; i < count; ++i) {
+   view[i] = GROWABLE_HEAP_I32()[value + 4 * i >> 2];
+  }
+ } else {
+  var view = GROWABLE_HEAP_I32().subarray(value >> 2, value + count * 4 >> 2);
+ }
+ GLctx.uniform1iv(webglGetUniformLocation(location), view);
+}
+
 function _emscripten_glUniform1ui(location, v0) {
  GLctx.uniform1ui(webglGetUniformLocation(location), v0);
 }
@@ -7652,8 +7681,6 @@ function _emscripten_glUniform2fv(location, count, value) {
  }
  GLctx.uniform2fv(webglGetUniformLocation(location), view);
 }
-
-var __miniTempWebGLIntBuffers = [];
 
 function _emscripten_glUniform2iv(location, count, value) {
  if (GL.currentContext.version >= 2) {
@@ -7872,7 +7899,7 @@ function _emscripten_unwind_to_js_event_loop() {
 }
 
 function _emscripten_webgl_destroy_context(contextHandle) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(37, 1, contextHandle);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(38, 1, contextHandle);
  if (GL.currentContext == contextHandle) GL.currentContext = 0;
  GL.deleteContext(contextHandle);
 }
@@ -7892,7 +7919,7 @@ function _emscripten_webgl_do_commit_frame() {
 }
 
 function _emscripten_webgl_create_context_proxied(target, attributes) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(38, 1, target, attributes);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(39, 1, target, attributes);
  return _emscripten_webgl_do_create_context(target, attributes);
 }
 
@@ -8083,7 +8110,7 @@ function _emscripten_webgl_do_create_context(target, attributes) {
 }
 
 function _emscripten_webgl_enable_extension(contextHandle, extension) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(39, 1, contextHandle, extension);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(40, 1, contextHandle, extension);
  var context = GL.getContext(contextHandle);
  var extString = UTF8ToString(extension);
  if (extString.startsWith("GL_")) extString = extString.substr(3);
@@ -8152,7 +8179,7 @@ function writeAsciiToMemory(str, buffer, dontAddNull) {
 }
 
 function _environ_get(__environ, environ_buf) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(40, 1, __environ, environ_buf);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(41, 1, __environ, environ_buf);
  var bufSize = 0;
  getEnvStrings().forEach(function(string, i) {
   var ptr = environ_buf + bufSize;
@@ -8164,7 +8191,7 @@ function _environ_get(__environ, environ_buf) {
 }
 
 function _environ_sizes_get(penviron_count, penviron_buf_size) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(41, 1, penviron_count, penviron_buf_size);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(42, 1, penviron_count, penviron_buf_size);
  var strings = getEnvStrings();
  GROWABLE_HEAP_U32()[penviron_count >> 2] = strings.length;
  var bufSize = 0;
@@ -8176,7 +8203,7 @@ function _environ_sizes_get(penviron_count, penviron_buf_size) {
 }
 
 function _fd_close(fd) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(42, 1, fd);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(43, 1, fd);
  try {
   var stream = SYSCALLS.getStreamFromFD(fd);
   FS.close(stream);
@@ -8188,7 +8215,7 @@ function _fd_close(fd) {
 }
 
 function _fd_fdstat_get(fd, pbuf) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(43, 1, fd, pbuf);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(44, 1, fd, pbuf);
  try {
   var stream = SYSCALLS.getStreamFromFD(fd);
   var type = stream.tty ? 2 : FS.isDir(stream.mode) ? 3 : FS.isLink(stream.mode) ? 7 : 4;
@@ -8215,7 +8242,7 @@ function doReadv(stream, iov, iovcnt, offset) {
 }
 
 function _fd_read(fd, iov, iovcnt, pnum) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(44, 1, fd, iov, iovcnt, pnum);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(45, 1, fd, iov, iovcnt, pnum);
  try {
   var stream = SYSCALLS.getStreamFromFD(fd);
   var num = doReadv(stream, iov, iovcnt);
@@ -8234,7 +8261,7 @@ function convertI32PairToI53Checked(lo, hi) {
 }
 
 function _fd_seek(fd, offset_low, offset_high, whence, newOffset) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(45, 1, fd, offset_low, offset_high, whence, newOffset);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(46, 1, fd, offset_low, offset_high, whence, newOffset);
  try {
   var offset = convertI32PairToI53Checked(offset_low, offset_high);
   if (isNaN(offset)) return 61;
@@ -8264,7 +8291,7 @@ function doWritev(stream, iov, iovcnt, offset) {
 }
 
 function _fd_write(fd, iov, iovcnt, pnum) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(46, 1, fd, iov, iovcnt, pnum);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(47, 1, fd, iov, iovcnt, pnum);
  try {
   var stream = SYSCALLS.getStreamFromFD(fd);
   var num = doWritev(stream, iov, iovcnt);
@@ -8281,7 +8308,7 @@ function _getTempRet0() {
 }
 
 function _getaddrinfo(node, service, hint, out) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(47, 1, node, service, hint, out);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(48, 1, node, service, hint, out);
  var addrs = [];
  var canon = null;
  var addr = 0;
@@ -8814,14 +8841,14 @@ function _godot_audio_init(p_mix_rate, p_latency, p_state_change, p_latency_upda
 }
 
 function _godot_audio_input_start() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(48, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(49, 1);
  return GodotAudio.create_input(function(input) {
   input.connect(GodotAudio.driver.get_node());
  });
 }
 
 function _godot_audio_input_stop() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(49, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(50, 1);
  if (GodotAudio.input) {
   const tracks = GodotAudio.input["mediaStream"]["getTracks"]();
   for (let i = 0; i < tracks.length; i++) {
@@ -8833,7 +8860,7 @@ function _godot_audio_input_stop() {
 }
 
 function _godot_audio_is_available() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(50, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(51, 1);
  if (!(window.AudioContext || window.webkitAudioContext)) {
   return 0;
  }
@@ -9350,7 +9377,7 @@ function _godot_js_display_clipboard_set(p_text) {
   return 1;
  }
  navigator.clipboard.writeText(text).catch(function(e) {
-  GodotRuntime.error("Setting OS clipboard is only possible from an input callback for the Web plafrom. Exception:", e);
+  GodotRuntime.error("Setting OS clipboard is only possible from an input callback for the Web platform. Exception:", e);
  });
  return 0;
 }
@@ -9666,17 +9693,22 @@ var GodotFetch = {
    return;
   }
   let chunked = false;
+  let bodySize = -1;
   response.headers.forEach(function(value, header) {
    const v = value.toLowerCase().trim();
    const h = header.toLowerCase().trim();
    if (h === "transfer-encoding" && v === "chunked") {
     chunked = true;
    }
+   if (h === "content-length") {
+    bodySize = parseInt(v, 10);
+   }
   });
   obj.status = response.status;
   obj.response = response;
   obj.reader = response.body.getReader();
   obj.chunked = chunked;
+  obj.bodySize = bodySize;
  },
  onerror: function(id, err) {
   GodotRuntime.error(err);
@@ -10314,6 +10346,27 @@ function _godot_js_os_fs_sync(callback) {
  GodotOS._fs_sync_promise.then(function(err) {
   func();
  });
+}
+
+function _godot_js_os_has_feature(p_ftr) {
+ const ftr = GodotRuntime.parseString(p_ftr);
+ const ua = navigator.userAgent;
+ if (ftr === "web_macos") {
+  return ua.indexOf("Mac") !== -1 ? 1 : 0;
+ }
+ if (ftr === "web_windows") {
+  return ua.indexOf("Windows") !== -1 ? 1 : 0;
+ }
+ if (ftr === "web_android") {
+  return ua.indexOf("Android") !== -1 ? 1 : 0;
+ }
+ if (ftr === "web_ios") {
+  return ua.indexOf("iPhone") !== -1 || ua.indexOf("iPad") !== -1 || ua.indexOf("iPod") !== -1 ? 1 : 0;
+ }
+ if (ftr === "web_linuxbsd") {
+  return ua.indexOf("CrOS") !== -1 || ua.indexOf("BSD") !== -1 || ua.indexOf("Linux") !== -1 || ua.indexOf("X11") !== -1 ? 1 : 0;
+ }
+ return 0;
 }
 
 function _godot_js_os_hw_concurrency_get() {
@@ -11224,7 +11277,7 @@ function _godot_js_wrapper_object_unref(p_id) {
 var GodotWebGL2 = {};
 
 function _godot_webgl2_glFramebufferTextureMultiviewOVR(target, attachment, texture, level, base_view_index, num_views) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(51, 1, target, attachment, texture, level, base_view_index, num_views);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(52, 1, target, attachment, texture, level, base_view_index, num_views);
  const context = GL.currentContext;
  if (typeof context.multiviewExt === "undefined") {
   const ext = context.GLctx.getExtension("OVR_multiview2");
@@ -11249,6 +11302,7 @@ var GodotWebXR = {
  view_count: 1,
  input_sources: [ , , , , , , , , , , , , , , ,  ],
  touches: [ , , , ,  ],
+ onsimpleevent: null,
  orig_requestAnimationFrame: null,
  requestAnimationFrame: callback => {
   if (GodotWebXR.session && GodotWebXR.space) {
@@ -11383,7 +11437,7 @@ var GodotWebXR = {
 };
 
 function _godot_webxr_get_bounds_geometry(r_points) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(52, 1, r_points);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(53, 1, r_points);
  if (!GodotWebXR.space || !GodotWebXR.space.boundsGeometry) {
   return 0;
  }
@@ -11403,7 +11457,7 @@ function _godot_webxr_get_bounds_geometry(r_points) {
 }
 
 function _godot_webxr_get_color_texture() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(53, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(54, 1);
  const subimage = GodotWebXR.getSubImage();
  if (subimage === null) {
   return 0;
@@ -11412,7 +11466,7 @@ function _godot_webxr_get_color_texture() {
 }
 
 function _godot_webxr_get_depth_texture() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(54, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(55, 1);
  const subimage = GodotWebXR.getSubImage();
  if (subimage === null) {
   return 0;
@@ -11423,8 +11477,16 @@ function _godot_webxr_get_depth_texture() {
  return GodotWebXR.getTextureId(subimage.depthStencilTexture);
 }
 
+function _godot_webxr_get_frame_rate() {
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(56, 1);
+ if (!GodotWebXR.session || GodotWebXR.session.frameRate === undefined) {
+  return 0;
+ }
+ return GodotWebXR.session.frameRate;
+}
+
 function _godot_webxr_get_projection_for_view(p_view, r_transform) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(55, 1, p_view, r_transform);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(57, 1, p_view, r_transform);
  if (!GodotWebXR.session || !GodotWebXR.pose) {
   return false;
  }
@@ -11436,7 +11498,7 @@ function _godot_webxr_get_projection_for_view(p_view, r_transform) {
 }
 
 function _godot_webxr_get_render_target_size(r_size) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(56, 1, r_size);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(58, 1, r_size);
  const subimage = GodotWebXR.getSubImage();
  if (subimage === null) {
   return false;
@@ -11446,8 +11508,25 @@ function _godot_webxr_get_render_target_size(r_size) {
  return true;
 }
 
+function _godot_webxr_get_supported_frame_rates(r_frame_rates) {
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(59, 1, r_frame_rates);
+ if (!GodotWebXR.session || GodotWebXR.session.supportedFrameRates === undefined) {
+  return 0;
+ }
+ const frame_rate_count = GodotWebXR.session.supportedFrameRates.length;
+ if (frame_rate_count === 0) {
+  return 0;
+ }
+ const buf = GodotRuntime.malloc(frame_rate_count * 4);
+ for (let i = 0; i < frame_rate_count; i++) {
+  GodotRuntime.setHeapValue(buf + i * 4, GodotWebXR.session.supportedFrameRates[i], "float");
+ }
+ GodotRuntime.setHeapValue(r_frame_rates, buf, "i32");
+ return frame_rate_count;
+}
+
 function _godot_webxr_get_transform_for_view(p_view, r_transform) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(57, 1, p_view, r_transform);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(60, 1, p_view, r_transform);
  if (!GodotWebXR.session || !GodotWebXR.pose) {
   return false;
  }
@@ -11465,7 +11544,7 @@ function _godot_webxr_get_transform_for_view(p_view, r_transform) {
 }
 
 function _godot_webxr_get_velocity_texture() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(58, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(61, 1);
  const subimage = GodotWebXR.getSubImage();
  if (subimage === null) {
   return 0;
@@ -11477,7 +11556,7 @@ function _godot_webxr_get_velocity_texture() {
 }
 
 function _godot_webxr_get_view_count() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(59, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(62, 1);
  if (!GodotWebXR.session || !GodotWebXR.pose) {
   return 1;
  }
@@ -11486,7 +11565,7 @@ function _godot_webxr_get_view_count() {
 }
 
 function _godot_webxr_get_visibility_state() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(60, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(63, 1);
  if (!GodotWebXR.session || !GodotWebXR.session.visibilityState) {
   return 0;
  }
@@ -11494,7 +11573,7 @@ function _godot_webxr_get_visibility_state() {
 }
 
 function _godot_webxr_initialize(p_session_mode, p_required_features, p_optional_features, p_requested_reference_spaces, p_on_session_started, p_on_session_ended, p_on_session_failed, p_on_input_event, p_on_simple_event) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(61, 1, p_session_mode, p_required_features, p_optional_features, p_requested_reference_spaces, p_on_session_started, p_on_session_ended, p_on_session_failed, p_on_input_event, p_on_simple_event);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(64, 1, p_session_mode, p_required_features, p_optional_features, p_requested_reference_spaces, p_on_session_started, p_on_session_ended, p_on_session_failed, p_on_input_event, p_on_simple_event);
  GodotWebXR.monkeyPatchRequestAnimationFrame(true);
  const session_mode = GodotRuntime.parseString(p_session_mode);
  const required_features = GodotRuntime.parseString(p_required_features).split(",").map(s => s.trim()).filter(s => s !== "");
@@ -11533,6 +11612,7 @@ function _godot_webxr_initialize(p_session_mode, p_required_features, p_optional
    onsimpleevent(c_str);
    GodotRuntime.free(c_str);
   });
+  GodotWebXR.onsimpleevent = onsimpleevent;
   const gl_context_handle = _emscripten_webgl_get_current_context();
   const gl = GL.getContext(gl_context_handle).GLctx;
   GodotWebXR.gl = gl;
@@ -11581,7 +11661,7 @@ function _godot_webxr_initialize(p_session_mode, p_required_features, p_optional
 }
 
 function _godot_webxr_is_session_supported(p_session_mode, p_callback) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(62, 1, p_session_mode, p_callback);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(65, 1, p_session_mode, p_callback);
  const session_mode = GodotRuntime.parseString(p_session_mode);
  const cb = GodotRuntime.get_func(p_callback);
  if (navigator.xr) {
@@ -11598,12 +11678,12 @@ function _godot_webxr_is_session_supported(p_session_mode, p_callback) {
 }
 
 function _godot_webxr_is_supported() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(63, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(66, 1);
  return !!navigator.xr;
 }
 
 function _godot_webxr_uninitialize() {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(64, 1);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(67, 1);
  if (GodotWebXR.session) {
   GodotWebXR.session.end().catch(e => {});
  }
@@ -11616,12 +11696,13 @@ function _godot_webxr_uninitialize() {
  GodotWebXR.view_count = 1;
  GodotWebXR.input_sources = new Array(16);
  GodotWebXR.touches = new Array(5);
+ GodotWebXR.onsimpleevent = null;
  GodotWebXR.monkeyPatchRequestAnimationFrame(false);
  GodotWebXR.pauseResumeMainLoop();
 }
 
 function _godot_webxr_update_input_source(p_input_source_id, r_target_pose, r_target_ray_mode, r_touch_index, r_has_grip_pose, r_grip_pose, r_has_standard_mapping, r_button_count, r_buttons, r_axes_count, r_axes) {
- if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(65, 1, p_input_source_id, r_target_pose, r_target_ray_mode, r_touch_index, r_has_grip_pose, r_grip_pose, r_has_standard_mapping, r_button_count, r_buttons, r_axes_count, r_axes);
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(68, 1, p_input_source_id, r_target_pose, r_target_ray_mode, r_touch_index, r_has_grip_pose, r_grip_pose, r_has_standard_mapping, r_button_count, r_buttons, r_axes_count, r_axes);
  if (!GodotWebXR.session || !GodotWebXR.frame) {
   return 0;
  }
@@ -11689,6 +11770,18 @@ function _godot_webxr_update_input_source(p_input_source_id, r_target_pose, r_ta
  GodotRuntime.setHeapValue(r_button_count, button_count, "i32");
  GodotRuntime.setHeapValue(r_axes_count, axes_count, "i32");
  return true;
+}
+
+function _godot_webxr_update_target_frame_rate(p_frame_rate) {
+ if (ENVIRONMENT_IS_PTHREAD) return _emscripten_proxy_to_main_thread_js(69, 1, p_frame_rate);
+ if (!GodotWebXR.session || GodotWebXR.session.updateTargetFrameRate === undefined) {
+  return;
+ }
+ GodotWebXR.session.updateTargetFrameRate(p_frame_rate).then(() => {
+  const c_str = GodotRuntime.allocString("display_refresh_rate_changed");
+  GodotWebXR.onsimpleevent(c_str);
+  GodotRuntime.free(c_str);
+ });
 }
 
 function _setTempRet0(val) {
@@ -12542,16 +12635,16 @@ var preloadedAudios = {};
 
 var GLctx;
 
-var miniTempWebGLFloatBuffersStorage = new Float32Array(288);
-
-for (var i = 0; i < 288; ++i) {
- miniTempWebGLFloatBuffers[i] = miniTempWebGLFloatBuffersStorage.subarray(0, i + 1);
-}
-
 var __miniTempWebGLIntBuffersStorage = new Int32Array(288);
 
 for (var i = 0; i < 288; ++i) {
  __miniTempWebGLIntBuffers[i] = __miniTempWebGLIntBuffersStorage.subarray(0, i + 1);
+}
+
+var miniTempWebGLFloatBuffersStorage = new Float32Array(288);
+
+for (var i = 0; i < 288; ++i) {
+ miniTempWebGLFloatBuffers[i] = miniTempWebGLFloatBuffersStorage.subarray(0, i + 1);
 }
 
 Module["request_quit"] = function() {
@@ -12585,7 +12678,7 @@ GodotOS.atexit(function(resolve, reject) {
 
 GodotJSWrapper.proxies = new Map();
 
-var proxiedFunctionTable = [ null, _proc_exit, exitOnMainThread, pthreadCreateProxied, ___syscall__newselect, ___syscall_accept4, ___syscall_bind, ___syscall_chdir, ___syscall_chmod, ___syscall_connect, ___syscall_faccessat, ___syscall_fcntl64, ___syscall_getcwd, ___syscall_getdents64, ___syscall_getsockname, ___syscall_getsockopt, ___syscall_ioctl, ___syscall_listen, ___syscall_lstat64, ___syscall_mkdirat, ___syscall_newfstatat, ___syscall_openat, ___syscall_poll, ___syscall_readlinkat, ___syscall_recvfrom, ___syscall_renameat, ___syscall_rmdir, ___syscall_sendto, ___syscall_socket, ___syscall_stat64, ___syscall_statfs64, ___syscall_symlink, ___syscall_unlinkat, __mmap_js, __munmap_js, _tzset_impl, _emscripten_force_exit, _emscripten_webgl_destroy_context, _emscripten_webgl_create_context_proxied, _emscripten_webgl_enable_extension, _environ_get, _environ_sizes_get, _fd_close, _fd_fdstat_get, _fd_read, _fd_seek, _fd_write, _getaddrinfo, _godot_audio_input_start, _godot_audio_input_stop, _godot_audio_is_available, _godot_webgl2_glFramebufferTextureMultiviewOVR, _godot_webxr_get_bounds_geometry, _godot_webxr_get_color_texture, _godot_webxr_get_depth_texture, _godot_webxr_get_projection_for_view, _godot_webxr_get_render_target_size, _godot_webxr_get_transform_for_view, _godot_webxr_get_velocity_texture, _godot_webxr_get_view_count, _godot_webxr_get_visibility_state, _godot_webxr_initialize, _godot_webxr_is_session_supported, _godot_webxr_is_supported, _godot_webxr_uninitialize, _godot_webxr_update_input_source ];
+var proxiedFunctionTable = [ null, _proc_exit, exitOnMainThread, pthreadCreateProxied, ___syscall__newselect, ___syscall_accept4, ___syscall_bind, ___syscall_chdir, ___syscall_chmod, ___syscall_connect, ___syscall_faccessat, ___syscall_fchmod, ___syscall_fcntl64, ___syscall_getcwd, ___syscall_getdents64, ___syscall_getsockname, ___syscall_getsockopt, ___syscall_ioctl, ___syscall_listen, ___syscall_lstat64, ___syscall_mkdirat, ___syscall_newfstatat, ___syscall_openat, ___syscall_poll, ___syscall_readlinkat, ___syscall_recvfrom, ___syscall_renameat, ___syscall_rmdir, ___syscall_sendto, ___syscall_socket, ___syscall_stat64, ___syscall_statfs64, ___syscall_symlink, ___syscall_unlinkat, __mmap_js, __munmap_js, _tzset_impl, _emscripten_force_exit, _emscripten_webgl_destroy_context, _emscripten_webgl_create_context_proxied, _emscripten_webgl_enable_extension, _environ_get, _environ_sizes_get, _fd_close, _fd_fdstat_get, _fd_read, _fd_seek, _fd_write, _getaddrinfo, _godot_audio_input_start, _godot_audio_input_stop, _godot_audio_is_available, _godot_webgl2_glFramebufferTextureMultiviewOVR, _godot_webxr_get_bounds_geometry, _godot_webxr_get_color_texture, _godot_webxr_get_depth_texture, _godot_webxr_get_frame_rate, _godot_webxr_get_projection_for_view, _godot_webxr_get_render_target_size, _godot_webxr_get_supported_frame_rates, _godot_webxr_get_transform_for_view, _godot_webxr_get_velocity_texture, _godot_webxr_get_view_count, _godot_webxr_get_visibility_state, _godot_webxr_initialize, _godot_webxr_is_session_supported, _godot_webxr_is_supported, _godot_webxr_uninitialize, _godot_webxr_update_input_source, _godot_webxr_update_target_frame_rate ];
 
 var ASSERTIONS = true;
 
@@ -12606,6 +12699,7 @@ var asmLibraryArg = {
  "__syscall_chmod": ___syscall_chmod,
  "__syscall_connect": ___syscall_connect,
  "__syscall_faccessat": ___syscall_faccessat,
+ "__syscall_fchmod": ___syscall_fchmod,
  "__syscall_fcntl64": ___syscall_fcntl64,
  "__syscall_getcwd": ___syscall_getcwd,
  "__syscall_getdents64": ___syscall_getdents64,
@@ -12738,6 +12832,7 @@ var asmLibraryArg = {
  "emscripten_glTransformFeedbackVaryings": _emscripten_glTransformFeedbackVaryings,
  "emscripten_glUniform1f": _emscripten_glUniform1f,
  "emscripten_glUniform1i": _emscripten_glUniform1i,
+ "emscripten_glUniform1iv": _emscripten_glUniform1iv,
  "emscripten_glUniform1ui": _emscripten_glUniform1ui,
  "emscripten_glUniform1uiv": _emscripten_glUniform1uiv,
  "emscripten_glUniform2f": _emscripten_glUniform2f,
@@ -12851,6 +12946,7 @@ var asmLibraryArg = {
  "godot_js_os_finish_async": _godot_js_os_finish_async,
  "godot_js_os_fs_is_persistent": _godot_js_os_fs_is_persistent,
  "godot_js_os_fs_sync": _godot_js_os_fs_sync,
+ "godot_js_os_has_feature": _godot_js_os_has_feature,
  "godot_js_os_hw_concurrency_get": _godot_js_os_hw_concurrency_get,
  "godot_js_os_request_quit_cb": _godot_js_os_request_quit_cb,
  "godot_js_os_shell_open": _godot_js_os_shell_open,
@@ -12903,8 +12999,10 @@ var asmLibraryArg = {
  "godot_webxr_get_bounds_geometry": _godot_webxr_get_bounds_geometry,
  "godot_webxr_get_color_texture": _godot_webxr_get_color_texture,
  "godot_webxr_get_depth_texture": _godot_webxr_get_depth_texture,
+ "godot_webxr_get_frame_rate": _godot_webxr_get_frame_rate,
  "godot_webxr_get_projection_for_view": _godot_webxr_get_projection_for_view,
  "godot_webxr_get_render_target_size": _godot_webxr_get_render_target_size,
+ "godot_webxr_get_supported_frame_rates": _godot_webxr_get_supported_frame_rates,
  "godot_webxr_get_transform_for_view": _godot_webxr_get_transform_for_view,
  "godot_webxr_get_velocity_texture": _godot_webxr_get_velocity_texture,
  "godot_webxr_get_view_count": _godot_webxr_get_view_count,
@@ -12914,6 +13012,7 @@ var asmLibraryArg = {
  "godot_webxr_is_supported": _godot_webxr_is_supported,
  "godot_webxr_uninitialize": _godot_webxr_uninitialize,
  "godot_webxr_update_input_source": _godot_webxr_update_input_source,
+ "godot_webxr_update_target_frame_rate": _godot_webxr_update_target_frame_rate,
  "invoke_ii": invoke_ii,
  "invoke_iii": invoke_iii,
  "invoke_iiii": invoke_iiii,
@@ -12960,9 +13059,9 @@ var __emwebxr_on_input_event = Module["__emwebxr_on_input_event"] = createExport
 
 var __emwebxr_on_simple_event = Module["__emwebxr_on_simple_event"] = createExportWrapper("_emwebxr_on_simple_event");
 
-var _pthread_self = Module["_pthread_self"] = createExportWrapper("pthread_self");
-
 var __emscripten_tls_init = Module["__emscripten_tls_init"] = createExportWrapper("_emscripten_tls_init");
+
+var _pthread_self = Module["_pthread_self"] = createExportWrapper("pthread_self");
 
 var _emscripten_builtin_memalign = Module["_emscripten_builtin_memalign"] = createExportWrapper("emscripten_builtin_memalign");
 
@@ -13022,6 +13121,8 @@ var stackRestore = Module["stackRestore"] = createExportWrapper("stackRestore");
 
 var stackAlloc = Module["stackAlloc"] = createExportWrapper("stackAlloc");
 
+var dynCall_vjiii = Module["dynCall_vjiii"] = createExportWrapper("dynCall_vjiii");
+
 var dynCall_vij = Module["dynCall_vij"] = createExportWrapper("dynCall_vij");
 
 var dynCall_ji = Module["dynCall_ji"] = createExportWrapper("dynCall_ji");
@@ -13031,6 +13132,8 @@ var dynCall_viiij = Module["dynCall_viiij"] = createExportWrapper("dynCall_viiij
 var dynCall_jii = Module["dynCall_jii"] = createExportWrapper("dynCall_jii");
 
 var dynCall_viij = Module["dynCall_viij"] = createExportWrapper("dynCall_viij");
+
+var dynCall_jiji = Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji");
 
 var dynCall_viiiiifiijii = Module["dynCall_viiiiifiijii"] = createExportWrapper("dynCall_viiiiifiijii");
 
@@ -13053,6 +13156,8 @@ var dynCall_vijiiii = Module["dynCall_vijiiii"] = createExportWrapper("dynCall_v
 var dynCall_vijii = Module["dynCall_vijii"] = createExportWrapper("dynCall_vijii");
 
 var dynCall_viiiiij = Module["dynCall_viiiiij"] = createExportWrapper("dynCall_viiiiij");
+
+var dynCall_viiiiiji = Module["dynCall_viiiiiji"] = createExportWrapper("dynCall_viiiiiji");
 
 var dynCall_viiijii = Module["dynCall_viiijii"] = createExportWrapper("dynCall_viiijii");
 
@@ -13078,7 +13183,7 @@ var dynCall_iijiiij = Module["dynCall_iijiiij"] = createExportWrapper("dynCall_i
 
 var dynCall_jijjjiiiiijii = Module["dynCall_jijjjiiiiijii"] = createExportWrapper("dynCall_jijjjiiiiijii");
 
-var dynCall_jiji = Module["dynCall_jiji"] = createExportWrapper("dynCall_jiji");
+var dynCall_jijiiiiifiii = Module["dynCall_jijiiiiifiii"] = createExportWrapper("dynCall_jijiiiiifiii");
 
 var dynCall_viijiiiiiifiii = Module["dynCall_viijiiiiiifiii"] = createExportWrapper("dynCall_viijiiiiiifiii");
 
@@ -13154,9 +13259,9 @@ var dynCall_vijd = Module["dynCall_vijd"] = createExportWrapper("dynCall_vijd");
 
 var dynCall_iiij = Module["dynCall_iiij"] = createExportWrapper("dynCall_iiij");
 
-var dynCall_ij = Module["dynCall_ij"] = createExportWrapper("dynCall_ij");
-
 var dynCall_jiiiii = Module["dynCall_jiiiii"] = createExportWrapper("dynCall_jiiiii");
+
+var dynCall_ij = Module["dynCall_ij"] = createExportWrapper("dynCall_ij");
 
 var dynCall_viijiiii = Module["dynCall_viijiiii"] = createExportWrapper("dynCall_viijiiii");
 
@@ -13186,6 +13291,8 @@ var dynCall_viijii = Module["dynCall_viijii"] = createExportWrapper("dynCall_vii
 
 var dynCall_jiijjj = Module["dynCall_jiijjj"] = createExportWrapper("dynCall_jiijjj");
 
+var dynCall_jiijj = Module["dynCall_jiijj"] = createExportWrapper("dynCall_jiijj");
+
 var dynCall_viiijiji = Module["dynCall_viiijiji"] = createExportWrapper("dynCall_viiijiji");
 
 var dynCall_viiijjiji = Module["dynCall_viiijjiji"] = createExportWrapper("dynCall_viiijjiji");
@@ -13195,8 +13302,6 @@ var dynCall_viijiji = Module["dynCall_viijiji"] = createExportWrapper("dynCall_v
 var dynCall_iiiiijiii = Module["dynCall_iiiiijiii"] = createExportWrapper("dynCall_iiiiijiii");
 
 var dynCall_iiiiiijd = Module["dynCall_iiiiiijd"] = createExportWrapper("dynCall_iiiiiijd");
-
-var dynCall_jiijj = Module["dynCall_jiijj"] = createExportWrapper("dynCall_jiijj");
 
 var dynCall_diidj = Module["dynCall_diidj"] = createExportWrapper("dynCall_diidj");
 
@@ -13221,8 +13326,6 @@ var dynCall_vijiiifii = Module["dynCall_vijiiifii"] = createExportWrapper("dynCa
 var dynCall_viijfii = Module["dynCall_viijfii"] = createExportWrapper("dynCall_viijfii");
 
 var dynCall_viiiiiiiiiiijjjjjjifiiiiii = Module["dynCall_viiiiiiiiiiijjjjjjifiiiiii"] = createExportWrapper("dynCall_viiiiiiiiiiijjjjjjifiiiiii");
-
-var dynCall_viiiiiji = Module["dynCall_viiiiiji"] = createExportWrapper("dynCall_viiiiiji");
 
 var dynCall_vijifff = Module["dynCall_vijifff"] = createExportWrapper("dynCall_vijifff");
 
